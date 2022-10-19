@@ -1,0 +1,693 @@
+
+% Journals
+
+% First the Full Name is given, then the abbreviation used in the AMS Math
+% Reviews, with an indication if it could not be found there.
+% Note the 2nd overwrites the 1st, so swap them if you want the full name.
+
+ %{AMS}
+ @String{AMSTrans = "American Mathematical Society Translations" }
+ @String{AMSTrans = "Amer. Math. Soc. Transl." }
+ @String{BullAMS = "Bulletin of the American Mathematical Society" }
+ @String{BullAMS = "Bull. Amer. Math. Soc." }
+ @String{ProcAMS = "Proceedings of the American Mathematical Society" }
+ @String{ProcAMS = "Proc. Amer. Math. Soc." }
+ @String{TransAMS = "Transactions of the American Mathematical Society" }
+ @String{TransAMS = "Trans. Amer. Math. Soc." }
+
+ %ACM
+ @String{CACM = "Communications of the {ACM}" }
+ @String{CACM = "Commun. {ACM}" }
+ @String{CompServ = "Comput. Surveys" }
+ @String{JACM = "J. ACM" }
+ @String{ACMMathSoft = "{ACM} Transactions on Mathematical Software" }
+ @String{ACMMathSoft = "{ACM} Trans. Math. Software" }
+ @String{SIGNUM = "{ACM} {SIGNUM} Newsletter" }
+ @String{SIGNUM = "{ACM} {SIGNUM} Newslett." }
+
+ @String{AmerSocio = "American Journal of Sociology" }
+ @String{AmerStatAssoc = "Journal of the American Statistical Association" }
+ @String{AmerStatAssoc = "J. Amer. Statist. Assoc." }
+ @String{ApplMathComp = "Applied Mathematics and Computation" }
+ @String{ApplMathComp = "Appl. Math. Comput." }
+ @String{AmerMathMonthly = "American Mathematical Monthly" }
+ @String{AmerMathMonthly = "Amer. Math. Monthly" }
+ @String{BIT = "{BIT}" }
+ @String{BritStatPsych = "British Journal of Mathematical and Statistical
+          Psychology" }
+ @String{BritStatPsych = "Brit. J. Math. Statist. Psych." }
+ @String{CanMathBull = "Canadian Mathematical Bulletin" }
+ @String{CanMathBull = "Canad. Math. Bull." }
+ @String{CompApplMath = "Journal of Computational and Applied Mathematics" }
+ @String{CompApplMath = "J. Comput. Appl. Math." }
+ @String{CompPhys = "Journal of Computational Physics" }
+ @String{CompPhys = "J. Comput. Phys." }
+ @String{CompStruct = "Computers and Structures" }
+ @String{CompStruct = "Comput. \& Structures" }
+ @String{CompJour = "The Computer Journal" }
+ @String{CompJour = "Comput. J." }
+ @String{CompSysSci = "Journal of Computer and System Sciences" }
+ @String{CompSysSci = "J. Comput. System Sci." }
+ @String{Computing = "Computing" }
+ @String{ContempMath = "Contemporary Mathematics" }
+ @String{ContempMath = "Contemp. Math." }
+ @String{Crelle = "Crelle's Journal" }
+ @String{GiornaleMath = "Giornale di Mathematiche" }
+ @String{GiornaleMath = "Giorn. Mat." } % didn't find in AMS MR., ibid.
+
+ %IEEE
+ @String{Computer = "{IEEE} Computer" }
+ @String{IEEETransComp = "{IEEE} Transactions on Computers" }
+ @String{IEEETransComp = "{IEEE} Trans. Comput." }
+ @String{IEEETransAC = "{IEEE} Transactions on Automatic Control" }
+ @String{IEEETransAC = "{IEEE} Trans. Automat. Control" }
+ @String{IEEESpec = "{IEEE} Spectrum" } % didn't find in AMS MR
+ @String{ProcIEEE = "Proceedings of the {IEEE}" }
+ @String{ProcIEEE = "Proc. {IEEE}" } % didn't find in AMS MR
+ @String{IEEETransAeroElec = "{IEEE} Transactions on Aerospace and Electronic
+     Systems" }
+ @String{IEEETransAeroElec = "{IEEE} Trans. Aerospace Electron. Systems" }
+
+ @String{IMANumerAna = "{IMA} Journal of Numerical Analysis" }
+ @String{IMANumerAna = "{IMA} J. Numer. Anal." }
+ @String{InfProcLet = "Information Processing Letters" }
+ @String{InfProcLet = "Inform. Process. Lett." }
+ @String{InstMathApp = "Journal of the Institute of Mathematics and
+     its Applications" }
+ @String{InstMathApp = "J. Inst. Math. Appl." }
+ @String{IntControl = "International Journal of Control" }
+ @String{IntControl = "Internat. J. Control" }
+ @String{IntNumerEng = "International Journal for Numerical Methods in
+     Engineering" }
+ @String{IntNumerEng = "Internat. J. Numer. Methods Engrg." }
+ @String{IntSuper = "International Journal of Supercomputing Applications" }
+ @String{IntSuper = "Internat. J. Supercomputing Applic." } % didn't find
+%% in AMS MR
+ @String{Kibernetika = "Kibernetika" }
+ @String{JResNatBurStand = "Journal of Research of the National Bureau
+     of Standards" }
+ @String{JResNatBurStand = "J. Res. Nat. Bur. Standards" }
+ @String{LinAlgApp = "Linear Algebra and its Applications" }
+ @String{LinAlgApp = "Linear Algebra Appl." }
+ @String{MathAnaAppl = "Journal of Mathematical Analysis and Applications" }
+ @String{MathAnaAppl = "J. Math. Anal. Appl." }
+ @String{MathAnnalen = "Mathematische Annalen" }
+ @String{MathAnnalen = "Math. Ann." }
+ @String{MathPhys = "Journal of Mathematical Physics" }
+ @String{MathPhys = "J. Math. Phys." }
+ @String{MathComp = "Mathematics of Computation" }
+ @String{MathComp = "Math. Comp." }
+ @String{MathScand = "Mathematica Scandinavica" }
+ @String{MathScand = "Math. Scand." }
+ @String{TablesAidsComp = "Mathematical Tables and Other Aids to Computation" }
+ @String{TablesAidsComp = "Math. Tables Aids Comput." }
+ @String{NumerMath = "Numerische Mathematik" }
+ @String{NumerMath = "Numer. Math." }
+ @String{PacificMath = "Pacific Journal of Mathematics" }
+ @String{PacificMath = "Pacific J. Math." }
+ @String{ParDistComp = "Journal of Parallel and Distributed Computing" }
+ @String{ParDistComp = "J. Parallel and Distrib. Comput." } % didn't find
+%% in AMS MR
+ @String{ParComputing = "Parallel Computing" }
+ @String{ParComputing = "Parallel Comput." }
+ @String{PhilMag = "Philosophical Magazine" }
+ @String{PhilMag = "Philos. Mag." }
+ @String{ProcNAS = "Proceedings of the National Academy of Sciences
+                    of the USA" }
+ @String{ProcNAS = "Proc. Nat. Acad. Sci. U. S. A." }
+ @String{Psychometrika = "Psychometrika" }
+ @String{QuartMath = "Quarterly Journal of Mathematics, Oxford, Series (2)" }
+ @String{QuartMath = "Quart. J. Math. Oxford Ser. (2)" }
+ @String{QuartApplMath = "Quarterly of Applied Mathematics" }
+ @String{QuartApplMath = "Quart. Appl. Math." }
+ @String{RevueInstStat = "Review of the International Statisical Institute" }
+ @String{RevueInstStat = "Rev. Inst. Internat. Statist." }
+
+ %SIAM
+ @String{JSIAM = "Journal of the Society for Industrial and Applied
+     Mathematics" }
+ @String{JSIAM = "J. Soc. Indust. Appl. Math." }
+ @String{JSIAMB = "Journal of the Society for Industrial and Applied
+     Mathematics, Series B, Numerical Analysis" }
+ @String{JSIAMB = "J. Soc. Indust. Appl. Math. Ser. B Numer. Anal." }
+ @String{SIAMAlgMeth = "{SIAM} Journal on Algebraic and Discrete Methods" }
+ @String{SIAMAlgMeth = "{SIAM} J. Algebraic Discrete Methods" }
+ @String{SIAMAppMath = "{SIAM} Journal on Applied Mathematics" }
+ @String{SIAMAppMath = "{SIAM} J. Appl. Math." }
+ @String{SIAMComp = "{SIAM} Journal on Computing" }
+ @String{SIAMComp = "{SIAM} J. Comput." }
+ @String{SIAMMatrix = "{SIAM} Journal on Matrix Analysis and Applications" }
+ @String{SIAMMatrix = "{SIAM} J. Matrix Anal. Appl." }
+ @String{SIAMNumAnal = "{SIAM} Journal on Numerical Analysis" }
+ @String{SIAMNumAnal = "{SIAM} J. Numer. Anal." }
+ @String{SIAMReview = "{SIAM} Review" }
+ @String{SIAMReview = "{SIAM} Rev." }
+ @String{SIAMSciStat = "{SIAM} Journal on Scientific and Statistical
+     Computing" }
+ @String{SIAMSciStat = "{SIAM} J. Sci. Statist. Comput." }
+
+ @String{SoftPracExp = "Software Practice and Experience" }
+ @String{SoftPracExp = "Software Prac. Experience" } % didn't find in AMS MR
+ @String{StatScience = "Statistical Science" }
+ @String{StatScience = "Statist. Sci." }
+ @String{Techno = "Technometrics" }
+ @String{USSRCompMathPhys = "{USSR} Computational Mathematics and Mathematical
+     Physics" }
+ @String{USSRCompMathPhys = "{U. S. S. R.} Comput. Math. and Math. Phys." }
+ @String{VLSICompSys = "Journal of {VLSI} and Computer Systems" }
+ @String{VLSICompSys = "J. {VLSI} Comput. Syst." }
+ @String{ZAngewMathMech = "Zeitschrift fur Angewandte Mathematik und
+     Mechanik" }
+ @String{ZAngewMathMech = "Z. Angew. Math. Mech." }
+ @String{ZAngewMathPhys = "Zeitschrift fur Angewandte Mathematik und Physik" }
+ @String{ZAngewMathPhys = "Z. Angew. Math. Phys." }
+
+% Publishers % ================================================= |
+
+ @String{Academic = "Academic Press" }
+ @String{ACMPress = "{ACM} Press" }
+ @String{AdamHilger = "Adam Hilger" }
+ @String{AddisonWesley = "Addison-Wesley" }
+ @String{AllynBacon = "Allyn and Bacon" }
+ @String{AMS = "American Mathematical Society" }
+ @String{Birkhauser = "Birkha{\"u}ser" }
+ @String{CambridgePress = "Cambridge University Press" }
+ @String{Chelsea = "Chelsea" }
+ @String{ClaredonPress = "Claredon Press" }
+ @String{DoverPub = "Dover Publications" }
+ @String{Eyolles = "Eyolles" }
+ @String{HoltRinehartWinston = "Holt, Rinehart and Winston" }
+ @String{Interscience = "Interscience" }
+ @String{JohnsHopkinsPress = "The Johns Hopkins University Press" }
+ @String{JohnWileySons = "John Wiley and Sons" }
+ @String{Macmillan = "Macmillan" }
+ @String{MathWorks = "The Math Works Inc." }
+ @String{McGrawHill = "McGraw-Hill" }
+ @String{NatBurStd = "National Bureau of Standards" }
+ @String{NorthHolland = "North-Holland" }
+ @String{OxfordPress = "Oxford University Press" }  %address Oxford or London?
+ @String{PergamonPress = "Pergamon Press" }
+ @String{PlenumPress = "Plenum Press" }
+ @String{PrenticeHall = "Prentice-Hall" }
+ @String{SIAMPub = "{SIAM} Publications" }
+ @String{Springer = "Springer-Verlag" }
+ @String{TexasPress = "University of Texas Press" }
+ @String{VanNostrand = "Van Nostrand" }
+ @String{WHFreeman = "W. H. Freeman and Co." }
+
+%Entries
+
+@inproceedings{Vallee-Rai:1999:SJB:781995.782008,
+ author = {Vall{\'e}e-Rai, Raja and Co, Phong and Gagnon, Etienne and Hendren, Laurie and Lam, Patrick and Sundaresan, Vijay},
+ title = {Soot---a {Java} Bytecode Optimization Framework},
+ booktitle = {Proceedings of the 1999 Conference of the Centre for Advanced Studies on Collaborative Research},
+ series = {CASCON '99},
+ year = {1999},
+ location = {Mississauga, Ontario, Canada},
+ pages = {214--224},
+ url = {http://dl.acm.org/citation.cfm?id=781995.782008},
+ acmid = {782008},
+ publisher = {IBM Press},
+} 
+
+@Book{beck02:_test_driven_devel,
+  author = 	 {Beck, Kent},
+  title = 	 {Test-Driven Development: By Example},
+  publisher = 	 {Addison-Wesley Professional},
+  year = 	 2002}
+
+
+@inproceedings{bravenboer09:_stric_declar_specif_sophis_point_analy,
+author = {Bravenboer, Martin and Smaragdakis, Yannis},
+title = {Strictly Declarative Specification of Sophisticated Points-to Analyses},
+year = 2009,
+isbn = 9781605587660,
+publisher = {Association for Computing Machinery},
+address = {New York, NY, USA},
+url = {https://doi.org/10.1145/1640089.1640108},
+doi = {10.1145/1640089.1640108},
+abstract = {We present the DOOP framework for points-to analysis of Java programs. DOOP builds on the idea of specifying pointer analysis algorithms declaratively, using Datalog: a logic-based language for defining (recursive) relations. We carry the declarative approach further than past work by describing the full end-to-end analysis in Datalog and optimizing aggressively using a novel technique specifically targeting highly recursive Datalog programs.As a result, DOOP achieves several benefits, including full order-of-magnitude improvements in runtime. We compare DOOP with Lhotak and Hendren's PADDLE, which defines the state of the art for context-sensitive analyses. For the exact same logical points-to definitions (and, consequently, identical precision) DOOP is more than 15x faster than PADDLE for a 1-call-site sensitive analysis of the DaCapo benchmarks, with lower but still substantial speedups for other important analyses. Additionally, DOOP scales to very precise analyses that are impossible with PADDLE and Whaley et al.'s bddbddb, directly addressing open problems in past literature. Finally, our implementation is modular and can be easily configured to analyses with a wide range of characteristics, largely due to its declarativeness.},
+booktitle = {Proceedings of the 24th ACM SIGPLAN Conference on Object Oriented Programming Systems Languages and Applications},
+pages = {243–262},
+numpages = 20,
+keywords = {DOOP, points-to analysis, datalog, bdds, declarative},
+location = {Orlando, Florida, USA},
+series = {OOPSLA '09}
+}
+
+@inproceedings{scholz16:_fast_large_scale_progr_analy_datal,
+author = {Scholz, Bernhard and Jordan, Herbert and Suboti\'{c}, Pavle and Westmann, Till},
+title = {On Fast Large-Scale Program Analysis in {Datalog}},
+year = 2016,
+isbn = 9781450342414,
+publisher = {Association for Computing Machinery},
+address = {New York, NY, USA},
+url = {https://doi.org/10.1145/2892208.2892226},
+doi = {10.1145/2892208.2892226},
+booktitle = {Proceedings of the 25th International Conference on Compiler Construction},
+pages = {196–206},
+numpages = 11,
+keywords = {Datalog, Compiler, Static Program Analysis, Program Synthesis},
+location = {Barcelona, Spain},
+series = {CC 2016}
+}
+
+@inproceedings{kildall73:_unified_approac_global_progr_optim,
+author = {Kildall, Gary A.},
+title = {A Unified Approach to Global Program Optimization},
+year = 1973,
+isbn = 9781450373494,
+publisher = {Association for Computing Machinery},
+address = {New York, NY, USA},
+url = {https://doi.org/10.1145/512927.512945},
+doi = {10.1145/512927.512945},
+booktitle = {Proceedings of the 1st Annual ACM SIGACT-SIGPLAN Symposium on Principles of Programming Languages},
+pages = {194–206},
+numpages = 13,
+location = {Boston, Massachusetts},
+series = {POPL '73}
+}
+
+@InProceedings{corsini93:_effic,
+author="Corsini, Marc-Michel
+and Musumbu, Kaninda
+and Rauzy, Antoine
+and Le Charlier, Baudouin",
+editor="Bruynooghe, Maurice
+and Penjam, Jaan",
+title="Efficient bottom-up abstract interpretation of prolog by means of constraint solving over symbolic finite domains (extended abstract)",
+booktitle="Progamming Language Implementation and Logic Programming",
+year=1993,
+publisher="Springer Berlin Heidelberg",
+address="Berlin, Heidelberg",
+pages="75--91",
+isbn="978-3-540-47945-1"
+}
+
+
+@Inbook{Reps1995,
+author="Reps, Thomas W.",
+editor="Ramakrishnan, Raghu",
+title="Demand Interprocedural Program Analysis Using Logic Databases",
+bookTitle="Applications of Logic Databases",
+year="1995",
+publisher="Springer US",
+address="Boston, MA",
+pages="163--196",
+abstract="This paper describes how algorithms for demand versions of interprocedural program-analysis problems can be obtained from their exhaustive counterparts essentially for free, by applying the so-called magic-sets transformation that was developed in the logic-programming and deductive-database communities. Applications to interprocedural dataflow analysis and interprocedural program slicing are described.1",
+isbn="978-1-4615-2207-2",
+doi="10.1007/978-1-4615-2207-2_8",
+url="https://doi.org/10.1007/978-1-4615-2207-2_8"
+}
+
+@InProceedings{prakash21:_effec_progr_repres_point_analy,
+author="Prakash, Jyoti
+and Tiwari, Abhishek
+and Hammer, Christian",
+editor="Guerra, Esther
+and Stoelinga, Mari{\"e}lle",
+title="Effects of Program Representation on Pointer Analyses --- An Empirical Study",
+booktitle="Fundamental Approaches to Software Engineering",
+year=2021,
+publisher="Springer International Publishing",
+address="Cham",
+pages="240--261",
+abstract="Static analysis frameworks, such as Soot and Wala, are used by researchers to prototype and compare program analyses. These frameworks vary on heap abstraction, modeling library classes, and underlying intermediate program representation (IR). Often, these variations pose a threat to the validity of the results as the implications of comparing the same analysis implementation in different frameworks are still unexplored. Earlier studies have focused on the precision, soundness, and recall of the algorithms implemented in these frameworks; however, little to no work has been done to evaluate the effects of program representation. In this work, we fill this gap and study the impact of program representation on pointer analysis. Unfortunately, existing metrics are insufficient for such a comparison due to their inability to isolate each aspect of the program representation. Therefore, we define two novel metrics that measure these analyses' precision after isolating the influence of class-hierarchy and intermediate representation. Our results establish that the minor differences in the class hierarchy and IR do not impact program analysis significantly. Besides, they reveal the sources of unsoundness that aid researchers in developing program analysis.",
+isbn="978-3-030-71500-7"
+}
+
+@Misc{wala19:_t,
+  author =    {{WALA}},
+  title =     {{T.J.} {Watson} {Libraries} for {Analysis}},
+  howpublished = {\url{https://github.com/wala/WALA}},
+  month =     {Jan},
+  year =      2019}
+
+@INPROCEEDINGS{ghafari15:_autom,
+  author={Ghafari, Mohammad and Ghezzi, Carlo and Rubinov, Konstantin},
+  booktitle={2015 IEEE 15th International Working Conference on Source Code Analysis and Manipulation (SCAM)}, 
+  title={Automatically identifying focal methods under test in unit test cases}, 
+  year=2015,
+  pages={61-70},
+  doi={10.1109/SCAM.2015.7335402}}
+
+@InProceedings{hajiyev06,
+author="Hajiyev, Elnar
+and Verbaere, Mathieu
+and de Moor, Oege",
+editor="Thomas, Dave",
+title="codeQuest: Scalable Source Code Queries with Datalog",
+booktitle="ECOOP 2006 -- Object-Oriented Programming",
+year=2006,
+publisher="Springer Berlin Heidelberg",
+address="Berlin, Heidelberg",
+pages="2--27",
+abstract="Source code querying tools allow programmers to explore relations between different parts of the code base. This paper describes such a tool, named codeQuest. It combines two previous proposals, namely the use of logic programming and database systems.",
+isbn="978-3-540-35727-8"
+}
+
+@inproceedings{dawson96:_pract_progr_analy_using_gener,
+author = {Dawson, Steven and Ramakrishnan, C. R. and Warren, David S.},
+title = {Practical Program Analysis Using General Purpose Logic Programming Systems—a Case Study},
+year = 1996,
+isbn = 0897917952,
+publisher = {Association for Computing Machinery},
+address = {New York, NY, USA},
+url = {https://doi.org/10.1145/231379.231399},
+doi = {10.1145/231379.231399},
+booktitle = {Proceedings of the ACM SIGPLAN 1996 Conference on Programming Language Design and Implementation},
+pages = {117–126},
+numpages = 10,
+location = {Philadelphia, Pennsylvania, USA},
+series = {PLDI '96}
+}
+
+@inproceedings{benton07:_inter_scalab_declar_progr_analy,
+author = {Benton, William C. and Fischer, Charles N.},
+title = {Interactive, Scalable, Declarative Program Analysis: From Prototype to Implementation},
+year = 2007,
+isbn = 9781595937698,
+publisher = {Association for Computing Machinery},
+address = {New York, NY, USA},
+url = {https://doi.org/10.1145/1273920.1273923},
+doi = {10.1145/1273920.1273923},
+booktitle = {Proceedings of the 9th ACM SIGPLAN International Conference on Principles and Practice of Declarative Programming},
+pages = {13–24},
+numpages = 12,
+keywords = {tabled prolog, logic programming, program analysis, prototyping, java, bytecodes},
+location = {Wroclaw, Poland},
+series = {PPDP '07}
+}
+
+@PhdThesis{benton08:_fast_effec_progr_analy_objec_level_paral,
+  author =       {William C. Benton},
+  title =        {Fast, Effective Program Analysis for Object-Level Parallelism.},
+  school =       {University of Wisconsin--Madison},
+  year =         2008,
+  month =     {December}}
+
+@inproceedings{bodden12:_inter_proced_data_flow_analy,
+author = {Bodden, Eric},
+title = {Inter-Procedural Data-Flow Analysis with {IFDS}/{IDE} and {Soot}},
+year = 2012,
+isbn = 9781450314909,
+publisher = {Association for Computing Machinery},
+address = {New York, NY, USA},
+url = {https://doi.org/10.1145/2259051.2259052},
+doi = {10.1145/2259051.2259052},
+booktitle = {Proceedings of the ACM SIGPLAN International Workshop on State of the Art in Java Program Analysis},
+pages = {3–8},
+numpages = 6,
+keywords = {flow-sensitive analysis, IFDS, IDE, inter-procedural static analysis},
+location = {Beijing, China},
+series = {SOAP '12}
+}
+
+@InProceedings{chu12:_collec_disjoin_analy,
+  author = 		 {Hang Chu and Patrick Lam},
+  title = 		 {Collection Disjointness Analysis},
+  booktitle = {Proceedings of the ACM SIGPLAN International Workshop on State of the Art in Java Program analysis},
+  pages = 	 {45--50},
+  numpages =     6,
+  doi =          {10.1145/2259051.2259058},
+  acmid =        2259058,
+  year = 	 2012,
+  series = 	 {SOAP '12},
+  address = 	 {Beijing, China}}
+
+@inproceedings{dillig11:_precis_reason_progr_using_contain,
+author = {Dillig, Isil and Dillig, Thomas and Aiken, Alex},
+title = {Precise Reasoning for Programs Using Containers},
+year = 2011,
+isbn = 9781450304900,
+publisher = {Association for Computing Machinery},
+address = {New York, NY, USA},
+url = {https://doi.org/10.1145/1926385.1926407},
+doi = {10.1145/1926385.1926407},
+booktitle = {Proceedings of the 38th Annual ACM SIGPLAN-SIGACT Symposium on Principles of Programming Languages},
+pages = {187–200},
+numpages = 14,
+keywords = {heap analysis, symbolic heap, container analysis},
+location = {Austin, Texas, USA},
+series = {POPL '11}}
+
+@inproceedings{soap12ifds,
+  author = 	 {Eric Bodden},
+  title = 	 {Inter-procedural Data-flow Analysis with IFDS/IDE and Soot},
+  booktitle = {1st ACM SIGPLAN International Workshop on the State Of the Art in Java Program Analysis (SOAP 2012)},
+  year = 	 2012,
+  month = 	 jul,
+  pages = {3--8},
+  doi = {10.1145/2259051.2259052},
+  url = {https://www.bodden.de/pubs/bodden12inter-procedural.pdf},  
+	annote = {an VGWort gemeldet},
+}
+
+@misc{tufano2020unit,
+    title={Unit Test Case Generation with Transformers and Focal Context},
+    author={Michele Tufano and Dawn Drain and Alexey Svyatkovskiy and Shao Kun Deng and Neel Sundaresan},
+    year={2020},
+    eprint={2009.05617},
+    archivePrefix={arXiv},
+    primaryClass={cs.SE}
+}
+
+@INPROCEEDINGS{rompaey09:_estab_traceab_links_unit_test,
+  author={Rompaey, Bart Van and Demeyer, Serge},
+  booktitle={13th European Conference on Software Maintenance and Reengineering}, 
+  title={Establishing Traceability Links between Unit Test Cases and Units under Test}, 
+  year=2009,
+  pages={209-218},
+  doi={10.1109/CSMR.2009.39}}
+
+
+@inproceedings{DBLP:conf/icsm/QusefOL10,
+  author    = {Abdallah Qusef and
+               Rocco Oliveto and
+               Andrea De Lucia},
+  editor    = {Radu Marinescu and
+               Michele Lanza and
+               Andrian Marcus},
+  title     = {Recovering traceability links between unit tests and classes under
+               test: An improved method},
+  booktitle = {26th {IEEE} International Conference on Software Maintenance {(ICSM}
+               2010), September 12-18, 2010, Timisoara, Romania},
+  pages     = {1--10},
+  publisher = {{IEEE} Computer Society},
+  year      = {2010},
+  url       = {https://doi.org/10.1109/ICSM.2010.5609581},
+  doi       = {10.1109/ICSM.2010.5609581},
+  timestamp = {Mon, 18 Jan 2021 18:05:53 +0100},
+  biburl    = {https://dblp.org/rec/conf/icsm/QusefOL10.bib},
+  bibsource = {dblp computer science bibliography, https://dblp.org}
+}
+
+@inproceedings{DBLP:conf/icsm/QusefBOLB11,
+  author    = {Abdallah Qusef and
+               Gabriele Bavota and
+               Rocco Oliveto and
+               Andrea De Lucia and
+               David W. Binkley},
+  title     = {{SCOTCH:} Test-to-code traceability using slicing and conceptual coupling},
+  booktitle = {{IEEE} 27th International Conference on Software Maintenance, {ICSM}
+               2011, Williamsburg, VA, USA, September 25-30, 2011},
+  pages     = {63--72},
+  publisher = {{IEEE} Computer Society},
+  year      = {2011},
+  url       = {https://doi.org/10.1109/ICSM.2011.6080773},
+  doi       = {10.1109/ICSM.2011.6080773},
+  timestamp = {Mon, 15 Jun 2020 17:08:57 +0200},
+  biburl    = {https://dblp.org/rec/conf/icsm/QusefBOLB11.bib},
+  bibsource = {dblp computer science bibliography, https://dblp.org}
+}
+
+@inproceedings{DBLP:conf/eclipse/YingT07,
+  author    = {Annie T. T. Ying and
+               Peri L. Tarr},
+  editor    = {Li{-}Te Cheng and
+               Alessandro Orso and
+               Martin P. Robillard},
+  title     = {Filtering out methods you wish you hadn't navigated},
+  booktitle = {Proceedings of the 2007 {OOPSLA} workshop on Eclipse Technology eXchange,
+               {ETX} 2007, Montreal, Quebec, Canada, October 21, 2007},
+  pages     = {11--15},
+  publisher = {{ACM}},
+  year      = {2007},
+  url       = {https://doi.org/10.1145/1328279.1328282},
+  doi       = {10.1145/1328279.1328282},
+  timestamp = {Tue, 06 Nov 2018 16:59:08 +0100},
+  biburl    = {https://dblp.org/rec/conf/eclipse/YingT07.bib},
+  bibsource = {dblp computer science bibliography, https://dblp.org}
+}
+
+@article{clark07:_static_analy_quant_infor_flow,
+author = {Clark, David and Hunt, Sebastian and Malacaria, Pasquale},
+title = {A Static Analysis for Quantifying Information Flow in a Simple Imperative Language},
+year = 2007,
+issue_date = {August 2007},
+publisher = {IOS Press},
+address = {NLD},
+volume = 15,
+number = 3,
+issn = {0926-227X},
+abstract = {We propose an approach to quantify interference in a simple imperative language that
+includes a looping construct. In this paper we focus on a particular case of this
+definition of interference: leakage of information from private variables to public
+ones via a Trojan Horse attack. We quantify leakage in terms of Shannon's information
+theory and we motivate our definition by proving a result relating this definition
+of leakage and the classical notion of programming language interference. The major
+contribution of the paper is a quantitative static analysis based on this definition
+for such a language. The analysis uses some non-trivial information theory results
+like Fano's inequality and the ℒ 1 inequality to provide reasonable bounds for conditional
+statements. While-loops are handled by integrating a qualitative flow-sensitive dependency
+analysis into the quantitative analysis.},
+journal = {J. Comput. Secur.},
+month = aug,
+pages = {321–371},
+numpages = 51,
+keywords = {measurement, quantify interference, information flow, confidentiality, while language, leakage, program analysis, information theory, Security, static analysis}
+}
+
+@inproceedings{alshahwan10:_autom,
+  author    = {Nadia Alshahwan and
+               Yue Jia and
+               Kiran Lakhotia and
+               Gordon Fraser and
+               David Shuler and
+               Paolo Tonella},
+  editor    = {Mark Harman and
+               Henry Muccini and
+               Wolfram Schulte and
+               Tao Xie},
+  title     = {{AUTOMOCK:} Automated Synthesis of a Mock Environment for Test Case
+               Generation},
+  booktitle = {Practical Software Testing: Tool Automation and Human Factors, 14.03.
+               - 19.03.2010},
+  series    = {Dagstuhl Seminar Proceedings},
+  volume    = 10111,
+  publisher = {Schloss Dagstuhl - Leibniz-Zentrum f{\"{u}}r Informatik, Germany},
+  year      = 2010,
+  url       = {http://drops.dagstuhl.de/opus/volltexte/2010/2618/},
+  timestamp = {Thu, 10 Jun 2021 13:02:05 +0200},
+  biburl    = {https://dblp.org/rec/conf/dagstuhl/AlshahwanJLFST10.bib},
+  bibsource = {dblp computer science bibliography, https://dblp.org}
+}
+
+@INPROCEEDINGS{fazzini20:_framew_autom_test_mockin_mobil_apps,
+  author={Fazzini, Mattia and Gorla, Alessandra and Orso, Alessandro},
+  booktitle={2020 35th IEEE/ACM International Conference on Automated Software Engineering (ASE)}, 
+  title={A Framework for Automated Test Mocking of Mobile Apps}, 
+  year=2020,
+  pages={1204--1208}}
+
+@inproceedings{daka15:_model_readab_improv_unit_tests,
+author = {Daka, Ermira and Campos, Jos\'{e} and Fraser, Gordon and Dorn, Jonathan and Weimer, Westley},
+title = {Modeling Readability to Improve Unit Tests},
+year = 2015,
+isbn = 9781450336758,
+publisher = {Association for Computing Machinery},
+address = {New York, NY, USA},
+url = {https://doi.org/10.1145/2786805.2786838},
+doi = {10.1145/2786805.2786838},
+abstract = { Writing good unit tests can be tedious and error prone, but even once they are written,
+the job is not done: Developers need to reason about unit tests throughout software
+development and evolution, in order to diagnose test failures, maintain the tests,
+and to understand code written by other developers. Unreadable tests are more difficult
+to maintain and lose some of their value to developers. To overcome this problem,
+we propose a domain-specific model of unit test readability based on human judgements,
+and use this model to augment automated unit test generation. The resulting approach
+can automatically generate test suites with both high coverage and also improved readability.
+In human studies users prefer our improved tests and are able to answer maintenance
+questions about them 14% more quickly at the same level of accuracy. },
+booktitle = {Proceedings of the 2015 10th Joint Meeting on Foundations of Software Engineering},
+pages = {107–118},
+numpages = 12,
+keywords = {automated test generation, Readability, unit testing},
+location = {Bergamo, Italy},
+series = {ESEC/FSE 2015}
+}
+
+@Misc{fowler07:_mocks_arent_stubs,
+  author =    {Martin Fowler},
+  title =     {Mocks Aren't Stubs},
+  howpublished = {\url{https://martinfowler.com/articles/mocksArentStubs.html}},
+  month =     {January},
+  year =      2007}
+
+
+@article{Petrovic:mutation_testing,
+  author    = {Goran Petrovic and
+               Marko Ivankovic and
+               Gordon Fraser and
+               Ren{\'{e}} Just},
+  title     = {Does mutation testing improve testing practices?},
+  journal   = {CoRR},
+  volume    = {abs/2103.07189},
+  year      = {2021},
+  url       = {https://arxiv.org/abs/2103.07189},
+  eprinttype = {arXiv},
+  eprint    = {2103.07189},
+  timestamp = {Tue, 23 Mar 2021 16:29:47 +0100},
+  biburl    = {https://dblp.org/rec/journals/corr/abs-2103-07189.bib},
+  bibsource = {dblp computer science bibliography, https://dblp.org}
+}
+
+@inproceedings{inozemtseva14:_cover_not_stron_correl_test_suite_effec,
+author = {Inozemtseva, Laura and Holmes, Reid},
+title = {Coverage is Not Strongly Correlated with Test Suite Effectiveness},
+year = 2014,
+isbn = 9781450327565,
+publisher = {Association for Computing Machinery},
+address = {New York, NY, USA},
+url = {https://doi.org/10.1145/2568225.2568271},
+doi = {10.1145/2568225.2568271},
+abstract = { The coverage of a test suite is often used as a proxy for its ability to detect faults. However, previous studies that investigated the correlation between code coverage and test suite effectiveness have failed to reach a consensus about the nature and strength of the relationship between these test suite characteristics. Moreover, many of the studies were done with small or synthetic programs, making it unclear whether their results generalize to larger programs, and some of the studies did not account for the confounding influence of test suite size. In addition, most of the studies were done with adequate suites, which are are rare in practice, so the results may not generalize to typical test suites.  We have extended these studies by evaluating the relationship between test suite size, coverage, and effectiveness for large Java programs. Our study is the largest to date in the literature: we generated 31,000 test suites for five systems consisting of up to 724,000 lines of source code. We measured the statement coverage, decision coverage, and modified condition coverage of these suites and used mutation testing to evaluate their fault detection effectiveness.  We found that there is a low to moderate correlation between coverage and effectiveness when the number of test cases in the suite is controlled for. In addition, we found that stronger forms of coverage do not provide greater insight into the effectiveness of the suite. Our results suggest that coverage, while useful for identifying under-tested parts of a program, should not be used as a quality target because it is not a good indicator of test suite effectiveness. },
+booktitle = {Proceedings of the 36th International Conference on Software Engineering},
+pages = {435–445},
+numpages = 11,
+keywords = {test suite quality, Coverage, test suite effectiveness},
+location = {Hyderabad, India},
+series = {ICSE 2014}
+}
+
+@ARTICLE {petrovic55:_pract_mutat_testin_scale,
+author = {Goran Petrovi\'c and Marko Ivankovi\'c and Gordon Fraser and René Just},
+journal = {IEEE Transactions on Software Engineering},
+title = {Practical Mutation Testing at Scale: A view from {Google}},
+year = 2021,
+number = 01,
+issn = {1939-3520},
+pages = {1-1},
+keywords = {testing;internet;tools;scalability;python;productivity;probabilistic logic},
+doi = {10.1109/TSE.2021.3107634},
+publisher = {IEEE Computer Society},
+address = {Los Alamitos, CA, USA},
+month = {aug}
+}
+
+@misc{beller2021use,
+      title={What It Would Take to Use Mutation Testing in Industry--A Study at Facebook}, 
+      author={Moritz Beller and Chu-Pan Wong and Johannes Bader and Andrew Scott and Mateusz Machalica and Satish Chandra and Erik Meijer},
+      year={2021},
+      eprint={2010.13464},
+      archivePrefix={arXiv},
+      primaryClass={cs.SE}
+}
+
+@inproceedings{sridharan07:_thin_slicin,
+author = {Sridharan, Manu and Fink, Stephen J. and Bodik, Rastislav},
+title = {Thin Slicing},
+year = 2007,
+isbn = 9781595936332,
+publisher = {Association for Computing Machinery},
+address = {New York, NY, USA},
+url = {https://doi.org/10.1145/1250734.1250748},
+doi = {10.1145/1250734.1250748},
+abstract = {Program slicing systematically identifies parts of a program relevant to a seed statement. Unfortunately, slices of modern programs often grow too large for human consumption. We argue that unwieldy slices arise primarily from an overly broad definition of relevance, rather than from analysis imprecision. While a traditional slice includes all statements that may affect a point of interest, not all such statements appear equally relevant to a human.As an improved method of finding relevant statements, we propose thin slicing. A thin slice consists only of producer statements for the seed, i.e., those statements that help compute and copy avalue to the seed. Statements that explain why producers affect the seed are excluded. For example, for a seed that reads a value from a container object, a thin slice includes statements that store the value into the container, but excludes statements that manipulate pointers to the container itself. Thin slices can also be hierarchically expanded to include statements explaining how producers affect the seed, yielding a traditional slice in the limit.We evaluated thin slicing for a set of debugging and program understanding tasks. The evaluation showed that thin slices usually included the desired statements for the tasks (e.g., the buggy statement for a debugging task). Furthermore, in simulated use of a slicing tool, thin slices revealed desired statements after inspecting 3.3 times fewer statements than traditional slicing for our debugging tasks and 9.4 times fewer statements for our program understanding tasks. Finally, our thin slicing algorithm scales well to relatively large Java benchmarks, suggesting that thin slicing represents an attractive option for practical tools.},
+booktitle = {Proceedings of the 28th ACM SIGPLAN Conference on Programming Language Design and Implementation},
+pages = {112–122},
+numpages = 11,
+keywords = {debugging, slicing, program understanding},
+location = {San Diego, California, USA},
+series = {PLDI '07}
+}

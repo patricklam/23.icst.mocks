@@ -1,0 +1,86 @@
+\documentclass[conference]{IEEEtran}
+\IEEEoverridecommandlockouts
+% The preceding line is only needed to identify funding in the first footnote. If that is unneeded, please comment it out.
+\usepackage{url}
+\usepackage{hyperref}
+\usepackage{cite}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{algorithmic}
+\usepackage{graphicx}
+\usepackage{textcomp}
+\usepackage{xcolor}
+\usepackage{todo}
+\usepackage{tikz}
+\usepackage{subfig}
+\def\BibTeX{{\rm B\kern-.05em{\sc i\kern-.025em b}\kern-.08em
+    T\kern-.1667em\lower.7ex\hbox{E}\kern-.125emX}}
+
+\tikzstyle{block} = [rectangle, draw, 
+    text width=5em, text centered, rounded corners, minimum height=2em]
+\tikzstyle{oval} = [ellipse, draw, 
+    text width=5em, text centered, rounded corners, minimum height=2em]
+\tikzstyle{bt} = [rectangle, draw, 
+    text width=1em, text centered, rounded corners, minimum height=2em]
+\usetikzlibrary{calc}
+\usetikzlibrary{arrows.meta}
+\usetikzlibrary{positioning}
+\usetikzlibrary{fit}
+\usetikzlibrary{shapes.geometric}
+
+\begin{document}
+
+\title{Do you have to mock me? An empirical study of mock usage in Java test suites}
+
+%% \author{\IEEEauthorblockN{Mohammad Mahdi Abdollahpour, Qian Liang, and Patrick Lam\IEEEauthorrefmark{1}}
+%% \IEEEauthorblockA{
+%% \begin{tabular}{cc}
+%% \IEEEauthorrefmark{1}University of Waterloo\\
+%% Waterloo, ON, Canada \\
+%% {\{mm2abdol,q8liang,patrick.lam\}@uwaterloo.ca}}
+%% \end{tabular}
+%% }
+%% \maketitle
+\author{\IEEEauthorblockN{Author 1, Author 2, and Author 3\IEEEauthorrefmark{1}}
+\IEEEauthorblockA{
+\begin{tabular}{cc}
+\IEEEauthorrefmark{1}Institution 1\\
+{\{author1, author2, author3\}@anon.org}}
+\end{tabular}
+}
+\maketitle
+
+\begin{abstract}
+Mocks are commonly used in Java test suites, but are not without controversy. In this work we empirically investigate the prevalence of mock objects in Java test suites and estimate the proportion of tests that use mock libraries to create mock objects in a way that is not easily replaceable by stub objects.
+\end{abstract}
+
+\begin{IEEEkeywords}
+static program analysis,
+empirical studies,
+mock objects,
+software maintenance,
+unit tests,
+test suite design
+\end{IEEEkeywords}
+
+\section{Introduction}
+\input{introduction}
+
+\section{Design Considerations for Using Mocks}
+\input{design}
+
+\section{Empirical Study: Methodology}
+\input{methodology}
+
+\section{Empirical Results}
+\input{results}
+
+\section{Related Work}
+\input{related}
+
+\section{Discussion}
+\input{discussion}
+
+\bibliographystyle{plainurl}
+\bibliography{bibliography}
+
+\end{document}
