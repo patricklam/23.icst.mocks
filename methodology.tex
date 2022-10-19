@@ -1,4 +1,28 @@
-How we do things.
+In this section, we explain how we count the statistics that we report.
+
+One challenge for whole-program static analysis of any test-related code is that whole-program
+analyses tend to aggressively prune code that is never invoked. Tests are invoked via reflection
+by a test driver. Hence, to analyze tests, we ran a first analysis to create a static test driver.
+
+\paragraph{JUnit and Driver Generation}
+JUnit tests are simply methods that developers write in test classes, appropriately annotated (in JUnit 3 by method name starting with ``test'', in 4+ by a \texttt{@Test} annotation). A JUnit test runner uses reflection to find tests. Out of the box, static analysis engines do not see tests as reachable code.
+
+% what about hierarchical drivers?
+
+Thus, to enable static analysis over a benchmark's test suite, our tool uses Soot to generate a driver class for each Java sub-package of the suite (e.g. \texttt{org.apache.ibatis.executor.statement}). In each of these sub-package driver classes, our tool creates a \textit{runall()} method, which invokes all methods within the sub-package that JUnit considers tests, as well as non-constructor test cases, all surrounded by calls to class-level init/setup and teardown methods. Concrete test methods are particularly easy to call from a driver, as they are specified to have no parameters and are not supposed to rely on any particular ordering. 
+Our tool then creates a RootDriver class at the root package level, which invokes the \textit{runall()} method in each sub-package driver class, along with the \texttt{@Test}/\texttt{@Before}/\texttt{@After} methods found in classes located at the root. The drivers that we generate also contain code to catch all checked exceptions declared to be thrown by the unit tests. Both our Soot and Doop implementations use the generated driver classes.
+
+All static frameworks must somehow approximate the set of entry points as appropriate for their targets. For instance, the Wala framework~\cite{wala19:_t} also creates synthetic entry points, but it does this to perform pointer analysis on a program's main code rather than to enumerate the program's test cases.
+
+\paragraph{Counting mocks}
+We used Doop queries to count the number of mock objects.
+\begin{itemize}
+\item talk about what things we actually count
+\end{itemize}
+
+\paragraph{Counting classes that are hard to mock}
+
+We used other Doop queries to count classes that fit our definition of being hard to mock.
 
 %% When is it difficult not to use mocks?
 
