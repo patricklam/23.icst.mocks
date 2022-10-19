@@ -1,1 +1,33 @@
 How we do things.
+
+%% When is it difficult not to use mocks?
+
+%% [Question: Difficult to Stub =? Difficult not to Mock]
+
+%% (N = <int>, N_A = <int>, AC = Abstract Class, C = Class, I = Interface, DtS = Difficult to Stub, ctor = Constructor, *internal)
+%% For any type T, if one (or more) of the below conditions are satisfied, then we classify T as DtS:
+%% as C:  T is final
+%% as I: T has more than N methods
+%% as C or AC: T has no public ctor
+%% as C or AC: T has final method M which is (needed to be) invoked in at least one test method.
+%% as C or AC: T has only “annoying” public ctor(s). 
+%% public ctor PC is “annoying” if one or more of the following conditions are satisfied:
+%% PC has more than N_A arguments
+%% PC has an argument A and A is “not nullable” and A’s type is DtS
+%% argument A is not nullable if A’s type is primitive or A is annotated by @NotNull
+
+%% *as C or AC or I: T has method (or public ctor) M and M is (needed to be) invoked in at least one test case and it is computationally expensive to execute any meaningful implementation of M.
+%% [+special case about mocking Object and primitive types (+their collections) -> convenience if not condition 6]
+
+
+%% alternative for 5.b: there will be errors if we modify the program and add @Nullable annotation to A
+%% Checker framework will complain about any dereference of possibly-null reference types by default. (Adding @Nullable will only add checks for any nonnull to nullable assignments (source).) 
+%% So if there is a possibly-null dereference error on a constructor argument C_A (or any variable pointing to C_A), then we can not pass null to easily initialize it.
+%% parsing checker outputs takes a bit of work! (is there a way to export maven output into a better format like csv or json?)
+
+%% about 4: mockito did not support stubbing final methods before version 2. after version 2 devs should activate a plugin to be able to stub final methods (source1, source2). 
+%% there is no case of stubbing a final method in our benchmarks.
+
+
+%% currently we have (or can super easily get) count/percentage for:
+%% 1, 2 (if we decide on N), 3, 4 (have the code but no benchmark), 5.a

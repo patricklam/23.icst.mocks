@@ -1,1 +1,14 @@
-Intro.
+Our goal is twofold: 1) we estimate the prevalence of mocks in extant test suites; and 2) we estimate how often it would be difficult to use alternatives to mocks (e.g. stubs).
+
+percentage of classes being mocked (classes as mock subjects; how many distinct implementations of classes; how many tests have mocks)
+
+is it the case that tests in package X are more likely to use real objects from X and mock objects from Y? Does it make sense to compute a notion of distance between X and Y? (e.g. you mock a database which is “far away” but not something close by)
+how much dependence from main code and how much dependence from test case?
+
+what is the lifetime of a mock object? does it survive across tests (in a field), or is it created just within a test? (compare to non-mocks)
+
+What things are hard to mock?
+
+https://blog.cleancoder.com/uncle-bob/2014/05/10/WhenToMock.html
+
+

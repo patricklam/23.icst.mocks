@@ -1,1 +1,16 @@
-Why mocks?
+Mock objects~\cite{beck02:_test_driven_devel} are commonly used in
+unit tests for object-oriented systems.  They allow developers to test objects that 
+rely on other objects, particularly ones that are hard 
+to build (e.g. databases; or that come from different components).
+
+While mock objects are an invaluable tool for developers, their use
+
+
+
+
+also complicates the static analysis of test case source code. 
+Such static analyses can help IDEs provide better
+support to test case writers; enable better static estimation of test coverage
+(avoiding mocks); and detect focal methods in test cases. While researchers have
+proposed techniques for automatically generating mocks~\cite{alshahwan10:_autom,fazzini20:_framew_autom_test_mockin_mobil_apps}, our goal here is the opposite:
+we detect mocks that already exist in test cases.
