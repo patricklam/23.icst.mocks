@@ -1,5 +1,8 @@
 \label{sec:methodology}
 
+
+Section~\ref{sec:methodology} will provide a more detailed definition of ``hard to stub''. We have identified a number of reasons that make a class or interface hard to stub. Some reasons are: would have to implement too many methods (even if the implementation is empty); has no accessible constructor; constructor has too many arguments; etc. Our goal is to assess how often mocks are used to provide implementations of classes or interfaces that are hard to stub. In other words, the use of a mock is indispensible for testing collaborators of these objects.
+
 In this section, we explain how we count the statistics that we report.
 
 One challenge for whole-program static analysis of any test-related code is that whole-program
