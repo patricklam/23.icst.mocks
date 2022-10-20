@@ -1,16 +1,43 @@
-Mock objects~\cite{beck02:_test_driven_devel} are commonly used in
-unit tests for object-oriented systems.  They allow developers to test objects that 
-rely on other objects, particularly ones that are hard 
-to build (e.g. databases; or that come from different components).
+Proper usage of mock objects and stubs/fakes has been debated among practitioners, and there is some work on understanding the use of mock objects in the research literature. In this work, one of our key goals is to understand how easy it is for developers to choose between mocks and stubs/fakes. We thus reiterate Meszaros's classification from~\cite{meszaros2007xunit}, which was also revisited by Fowler~\cite{fowler07:_mocks_arent_stubs}. 
 
-While mock objects are an invaluable tool for developers, their use
+The overarching concept is that of a test double. When testing a given class \texttt{C}, a developer will need to somehow provide instances of \texttt{C}'s collaborators; for instance, in~\cite{mackinnon00:_endo_testin}, the motivating example is a test case exercising a \texttt{JunitCreatorModel} object; that object takes a workspace object as a parameter to its constructor.
 
+\begin{lstlisting}
+  // ...
+  JUnitCreatorModel creatorModel =
+            new JunitCreatorModel(myMockWorkspace, PACKAGE_NAME);
+  try {
+    creatorModel.createTestCase(EXISTING_CLASS_NAME);
+    // ...
+\end{lstlisting}
 
+So, there has to be some workspace object. (In this case, it is not possible to pass \texttt{null} as the constructor parameter, because the \texttt{JunitCreatorModel} calls methods on the workspace.) Stubs, fakes, and mocks are test doubles. Following Meszaros, a stub's methods return canned answers, while a fake is a simplified but working implementation (e.g. an in-memory database rather than one that stores data to persistent storage). 
 
+(Note that the definition of mock objects has shifted since the initial publication by Mackinnon et al~\cite{mackinnon00:_endo_testin}; their use of the term ``mock'' includes what Meszaros would call stubs and fakes. In subsequent work~\cite{freeman04:_mock_roles_objec}, they still refer to stubs, but discourage explicit stub implementations and encourage the recording of mock object behaviours, as seen in modern mock frameworks.)
 
-also complicates the static analysis of test case source code. 
-Such static analyses can help IDEs provide better
-support to test case writers; enable better static estimation of test coverage
-(avoiding mocks); and detect focal methods in test cases. While researchers have
-proposed techniques for automatically generating mocks~\cite{alshahwan10:_autom,fazzini20:_framew_autom_test_mockin_mobil_apps}, our goal here is the opposite:
-we detect mocks that already exist in test cases.
+Section~\ref{sec:methodology} will provide a more detailed definition of ``hard to stub''. We have identified a number of reasons that make a class or interface hard to stub. Some reasons are: would have to implement too many methods (even if the implementation is empty); has no accessible constructor; constructor has too many arguments; etc. Our goal is to assess how often mocks are used to provide implementations of classes or interfaces that are hard to stub. In other words, the use of a mock is indispensible for testing collaborators of these objects.
+
+With the introduction of the concept of mocks came two worldviews: the ``classical'' worldview and the ``mockist'' worldview.
+One of the controversies associated with using test doubles is that they hardcode system behaviour in the test case. Because of this potential disadvantage, the ``classical'' view prefers to avoid test doubles when possible. The ``mockist'' view advocates for the use of test doubles, pointing out that their mock implementations, being partial, can be more lightweight than stub fake implementations.
+
+\todo[inline]{give another example of a case where we can use a real object instead of a test double}
+
+Our work aims, in part, to determine how easy it is to avoid test doubles. The implication, if it is often easy to avoid doubles, is that developers can freely choose either the ``classical'' view or the ``mockist'' view, and if they take the ``classical'' view, then they do not often have to write mocks. On the other hand, if it is often difficult to avoid test doubles, then the ``mockist'' view may be a more comfortable worldview, because the developer will have to write a lot of mocks regardless. Of course, a particular system's design may be more amenable to a particular view.
+
+%% also complicates the static analysis of test case source code. 
+%% Such static analyses can help IDEs provide better
+%% support to test case writers; enable better static estimation of test coverage
+%% (avoiding mocks); and detect focal methods in test cases. While researchers have
+%% proposed techniques for automatically generating mocks~\cite{alshahwan10:_autom,fazzini20:_framew_autom_test_mockin_mobil_apps}, our goal here is the opposite:
+%% we detect mocks that already exist in test cases.
+
+% Users of model checkers like CBMC often replace functions lower in
+% the call graphs with mocks in order to allow the tool to reason
+% about functions higher in the call graph.  This is dangerous because
+% it isn't possible to then check that the mock truly is an
+% abstraction of the code is stands for. That is part of the
+% motivation for writing function contracts. If we can infer those
+% contracts from the mocks that would be very valuable.
+
+\todo[inline]{yet in C\# mocking is done completely different. Moq is the popular framework and it does mocking via inheritance (not bytecode manipulation). It can only mock interfaces and class methods that are virtual (can be overridden by a subclass). 
+so back to your statement.. if in C\# mocking is done mostly for things that can be easily stubbed (unless they have too many methods) why is mocking popular there?}

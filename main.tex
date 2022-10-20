@@ -9,9 +9,10 @@
 \usepackage{graphicx}
 \usepackage{textcomp}
 \usepackage{xcolor}
-\usepackage{todo}
 \usepackage{tikz}
 \usepackage{subfig}
+\usepackage{listings}
+\usepackage{todonotes}
 \def\BibTeX{{\rm B\kern-.05em{\sc i\kern-.025em b}\kern-.08em
     T\kern-.1667em\lower.7ex\hbox{E}\kern-.125emX}}
 
@@ -26,10 +27,35 @@
 \usetikzlibrary{positioning}
 \usetikzlibrary{fit}
 \usetikzlibrary{shapes.geometric}
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{mauve}{rgb}{0.58,0,0.82}
+
+\lstset{
+  frame=tb,
+  language=Java,
+  aboveskip=3mm,
+  belowskip=3mm,
+  showstringspaces=false,
+  captionpos=b,
+  columns=flexible,
+  basicstyle={\small\ttfamily},
+  numbers=none,
+  numberstyle=\tiny\color{gray},
+  numberblanklines=false,
+  keywordstyle=\color{blue},
+  commentstyle=\color{dkgreen},
+  stringstyle=\color{mauve},
+  breaklines=true,
+  breakatwhitespace=true,
+  tabsize=2,
+  escapeinside=??
+}
+
 
 \begin{document}
 
-\title{Do you have to mock me? An empirical study of mock usage in Java test suites}
+\title{Do you have to mock me? A study of indispensable mocks in Java test suites}
 
 %% \author{\IEEEauthorblockN{Mohammad Mahdi Abdollahpour, Qian Liang, and Patrick Lam\IEEEauthorrefmark{1}}
 %% \IEEEauthorblockA{
