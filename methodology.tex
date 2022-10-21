@@ -19,7 +19,7 @@ It also supports arrays, containers, and fields. Although declarative analyses a
 
 
 % Mock Libraries discussed in Common Infrastructure section, perhaps refer to the paragraph in Common Infrastructure section?
-The implementation declares facts for 10 mock source methods manually gleaned from the mock libraries' documentation, as specified through method signatures (e.g. 
+The implementation declares facts for 12 mock source methods manually gleaned from the mock libraries' documentation, as specified through method signatures (e.g. 
 \texttt{<org.mockito.Mockito: java.lang.Object mock(java.lang.Class)>}.)
 It then declares that a variable {\tt v} satisfies \verb+isMockVar(v)+ if it is assigned from the return value of a mock source, or otherwise traverses the program's interprocedural control-flow graph, through assignments, which may possibly flow through fields, collections, or arrays. Finally, an invocation site is a mock invocation if the receiver object {\tt v} satisfies \verb+isMockVar(v)+.
 
