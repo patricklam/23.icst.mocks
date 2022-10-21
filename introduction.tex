@@ -1,5 +1,5 @@
 A key challenge in writing tests for object-oriented systems is
-finding collaborators for objects that are being tested. Sometimes,
+producing collaborators for objects that are being tested. Sometimes,
 collaborators are difficult to instantiate---for instance, because
 they themselves have many dependencies---or, their execution might be
 difficult to control, slow, or unreliable, as in the case of a
@@ -17,16 +17,26 @@ which is quite Test-Driven Development (TDD)-centric, the primary value
 of mocks is in guiding system design (towards, of course, more mock-friendly
 systems). Concretely, this means that mockists advocate behaviour-based
 tests that verify that an object under test makes the correct calls
-to its collaborators. Many more collaborator objects will be mocked
-(rather than stubbed or faked) under the mockist view.
+to its collaborators. Generally, the mockist view implies the writing of more mocks
+(rather than stubs or fakes) to produce collaborators.
 
-Another aspect of the mockist view is that tests should use mocks
+The mockist view also advocates that tests should use mocks
 only for collaborators with the same (code) owner as the object
 being tested. Under the classical view, developers will mock
 when required, no matter if the collaborator to be mocked is in
 the same module, or is instead in a library.
 
-\todo[inline]{Give an example about classical vs mockist here}
+We discuss some sample collaborators and whether they would be mocked in the 
+classical and mockist views.
+
+\begin{itemize}
+\item ArrayList: not mocked in either view; use an actual instance.
+\item in a Model-View-Controller design, collaborating with a View from a Model: in the mockist view,
+this would likely be mocked, and the Model/View interactions checked; in the classical view, would depend on
+how easy it would be to create a real View.
+\item database/web service: a pure mockist view would advocate for mocking the local database interface, while the classical
+view might create a fake.
+\end{itemize}
 
 Our goal is to form a data-driven opinion about how extant designs of
 Java systems support classical versus mockist views.  To do so, we
