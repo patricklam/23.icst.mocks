@@ -33,7 +33,7 @@ classify $T$ as difficult to stub.
 \item $T$ is a final class: although final classes may be instantiable, we cannot add test behaviour to them
 \item $T$ is an interface and has more than 5 methods: for an interface, we need to implement all methods in the stub, and more than the arbitrarily-chosen threshold of 5 becomes unwieldy
 \item $T$ is a class but has no public constructor: such a class may be difficult to instantiate in a test context, e.g. from a different package
-\item $T$ is a class with final method \texttt{m()} which at least one test method invokes: again, we cannot add test behaviour to \texttt{m()} (note that such classes are also difficult to mock, though modern versions of Mockito can use Java reflection to do so)
+\item $T$ is a class with final method \texttt{m()} which at least one test method invokes: again, we cannot add test behaviour to \texttt{m()} (note that such classes are also difficult to mock, though modern versions of Mockito with appropriate plugins can use Java reflection to do so)
 \item $T$ is a class with public constructors, but all constructors have more than 5 arguments: such classes are likely to be difficult to instantiate.
 \end{itemize}
 
