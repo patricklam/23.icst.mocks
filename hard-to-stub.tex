@@ -8,7 +8,7 @@ We define some predicates which approximate ``easy to stub'', and explain them i
 %\paragraph{Counting classes that are hard to stub}
 
 % We used Doop queries to count classes that fit our definition of being hard to stub. 
-We developed a data analysis codebase on top of a selection of Doop facts (\texttt{Var-Type}, \texttt{ClassModifier}, \texttt{Method}, \texttt{Method-Modifier}, \texttt{Param-Annotation}) and two of our mock analysis outputs (\texttt{isMockVar}, \texttt{isMockInvocation}). At its core, this codebase includes queries to filter out classes that fit our definition of being hard to stub, in addition to queries for computing aggregate statistics for each benchmark.
+We developed a data analysis codebase on top of a selection of Doop facts (\texttt{Var-Type}, \texttt{ClassModifier}, \texttt{Method}, \texttt{Method-Modifier}, \texttt{Param-Annotation}) and two of our mock analysis outputs (\texttt{isMockVar}, \texttt{isMockInvocation}). At its core, this codebase includes queries to filter out types that fit our definition of being hard to stub, in addition to the queries for computing aggregate statistics for each benchmark.
 
 We explain why we think these predicates express facets of being difficult to stub.
 
