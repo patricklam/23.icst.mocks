@@ -46,10 +46,13 @@ As an example, consider the test class \texttt{BootiqueUtilsTest} from our bench
   BQModuleMetadata.Builder builder1 = mock(BQModuleMetadata.Builder.class);
   BQModuleMetadata metadata1 = mock(BQModuleMetadata.class);
   when(builder1.build()).thenReturn(metadata1);
-  when(testModuleProvider1.moduleBuilder()).thenReturn(builder1);
+  when(testModuleProvider1.moduleBuilder()).
+             thenReturn(builder1);
   // ...
   Collection<BQModuleMetadata> bqModuleMetadata =
-      BootiqueUtils.moduleProviderDependencies(singletonList(testModuleProvider1));
+      BootiqueUtils.
+          moduleProviderDependencies(
+             singletonList(testModuleProvider1));
   // ...
       \end{lstlisting}
 
