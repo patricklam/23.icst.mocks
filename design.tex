@@ -21,25 +21,27 @@ This test needs a workspace object to exercise the model. (In this case, it is n
 With the introduction of the concept of mocks came two worldviews mentioned above: the ``classical'' worldview and the ``mockist'' worldview.
 One of the controversies associated with using test doubles is that they hardcode system behaviour into the test case. Because of this potential disadvantage, the ``classical'' view prefers to avoid test doubles when possible and instead use actual objects, though they are pragmatic enough to use doubles when required to. Martin (also known as ``Uncle Bob'')~\cite{martin14:_when_mock}, for instance, puts forward the classical view in his blog entry ``When to Mock'', and Fowler~\cite{fowler07:_mocks_arent_stubs} states that he leans more towards the classical view himself, though in his article, he aims to provide what is, to him, the best possible argument for a mockist view. The ``mockist'' view, as advocated by the inventors of mock objects~\cite{freeman04:_mock_roles_objec} among others, strongly prefers test doubles; they will prefer creating a mock---to elucidate the collaboration interface---even if the real type is easy to create. They point out that mock implementations, being partial, can be more lightweight than stub fake implementations.
 
-\todo[inline]{give another example of a case where we can use a real object instead of a test double}
+As an example, the \texttt{IteratorUtilsTest} from commons-collection-4.4 provides a number of tests for its \texttt{IteratorUtils} class. Some of the tests work with an array of mock \texttt{org.w3c.dom.Node} objects. Such objects would be hard to create directly (the \texttt{Node} interface has 37 methods), and so if we wanted to have \texttt{Node} objects it would indeed be easiest to create mocks. However, in fact, the tests don't rely on any properties of \texttt{Node}s, so they could populate the iterators being tested with real \texttt{Object} objects instead.
 
-Our work aims, in part, to determine how easy it is to avoid test doubles. The implication, if it is often easy to avoid doubles, is that developers can freely choose either the ``classical'' view or the ``mockist'' view, and if they take the ``classical'' view, then they do not often have to write mocks. On the other hand, if it is often difficult to avoid test doubles, then the ``mockist'' view may be a more comfortable worldview, because the developer will have to write a lot of mocks regardless. Of course, a particular system's design may be more amenable to a particular view.
+Our work thus aims, in part, to determine how easy it is to avoid test doubles. The implication, if it is often easy to avoid doubles, is that developers can freely choose either the ``classical'' view or the ``mockist'' view, and if they take the ``classical'' view, then they do not often have to write mocks. On the other hand, if it is often difficult to avoid test doubles, then the ``mockist'' view may be a more comfortable worldview, because the developer will have to write a lot of mocks regardless. Of course, a particular system's design may be more amenable to a particular view.
 
-\todo[inline]{hard to mock}
+%\todo[inline]{hard to mock}
 
 
 \paragraph{Respecting boundaries} A secondary goal of our work is to determine mock objects' distance, in the following sense.
 The mockist point of view, as expressed
 in~\cite{freeman04:_mock_roles_objec}, is ``only mock types you own'' and ``only mock your immediate
 neighbours'', i.e. the opposite of ``mock objects should only be used
-at the boundaries of the system''. In the example above, we saw that the
+at the boundaries of the system''. 
+
+In the example above, we saw that the
 \texttt{JunitCreatorModel} test was using a mock for its immediate collaborator
 workspace object. Mockists recommend using thin wrappers (stubs or fakes) for 
 library objects. On the other hand, the classical view uses test doubles
 for collaborators like databases and email-sending-code, creating them using mock libraries, even if such collaborators definitely
 do not share ownership with the class being tested.
 
-\todo[inline]{Can give an example of distance here}
+%\todo[inline]{Can give an example of distance here}
 
 %% also complicates the static analysis of test case source code. 
 %% Such static analyses can help IDEs provide better
