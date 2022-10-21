@@ -1,14 +1,66 @@
-Our goal is twofold: 1) we estimate the prevalence of mocks in extant test suites; and 2) we estimate how often it would be difficult to use alternatives to mocks (e.g. stubs).
+A key challenge in writing tests for object-oriented systems is
+finding collaborators for objects that are being tested. Sometimes,
+collaborators are difficult to instantiate---for instance, because
+they themselves have many dependencies---or, their execution might be
+difficult to control, slow, or unreliable, as in the case of a
+database connection.  Test doubles~\cite{meszaros2007xunit}, including
+mock objects, stubs, and fakes, are often required even to instantiate
+objects under test, as well as to test these objects' functionality.
 
-RQ: statistics on mocks: percentage of classes being mocked (classes as mock subjects; how many distinct implementations of classes; how many tests have mocks)
+Proper usage of mock objects and stubs/fakes has been debated among
+practitioners at length, and there is a division between so-called
+``classical'' and ``mockist'' schools. In the classical view, mocks
+are just one useful tool among many; they enable developers to easily
+provide partial implementations of collaborators. Generally, in the classical
+view, mocks should only be created when they are indispensable, i.e. hard to avoid. In the mockist view,
+which is quite Test-Driven Development (TDD)-centric, the primary value
+of mocks is in guiding system design (towards, of course, more mock-friendly
+systems). Concretely, this means that mockists advocate behaviour-based
+tests that verify that an object under test makes the correct calls
+to its collaborators. Many more collaborator objects will be mocked
+(rather than stubbed or faked) under the mockist view.
 
-RQ: is it the case that tests in package X are more likely to use real objects from X and mock objects from Y? Does it make sense to compute a notion of distance between X and Y? (e.g. you mock a database which is “far away” but not something close by)
-how much dependence from main code and how much dependence from test case?
+Another aspect of the mockist view is that tests should use mocks
+only for collaborators with the same (code) owner as the object
+being tested. Under the classical view, developers will mock
+when required, no matter if the collaborator to be mocked is in
+the same module, or is instead in a library.
 
-RQ: what is the lifetime of a mock object? does it survive across tests (in a field), or is it created just within a test? (compare to non-mocks)
+Our goal is to form a data-driven opinion about how extant designs of
+Java systems support classical versus mockist views.  To do so, we
+need to understand mock creation and usage in Java at a finer-grained level than in
+previous work.
 
-RQ: What things are hard to mock?
+Specifically, we are interested in the following research questions:
+\begin{itemize}
+\item RQ1: Quantitatively, how are mocks used in practice? Which types do developers mock, and what is the
+mock objects' relationships with the classes being tested?
+\item RQ2: Are developers choosing to mock objects for which it would be otherwise easy to write stub objects, or
+are they mainly writing mocks in cases where mocking is indispensable?
+\end{itemize}
+If developers write mocks for objects that are easy to stub, then we have some evidence that they are choosing
+a mockist view. Conversely, if they are only writing mocks for objects that are difficult to stub, we could
+expect them to be taking a classical view.
 
-https://blog.cleancoder.com/uncle-bob/2014/05/10/WhenToMock.html
+Our contributions include:
+\begin{itemize}
+\item a novel {\sc MockDetector} tool that performs a fine-grained static analysis to find mock object instantiations, determine which method calls
+in test cases are mock invocations, and identify objects that are difficult to stub; and,
+\item empirical data on a set of benchmarks about the use of mock objects in practice and the contexts in which these mocks are used.
+\end{itemize}
+We intend to make our tool and dataset publicly available.
+
+%Our goal is twofold: 1) we estimate the prevalence of mocks in extant test suites; and 2) we estimate how often it would be difficult to use alternatives to mocks (e.g. stubs).
+
+%RQ: statistics on mocks: percentage of classes being mocked (classes as mock subjects; how many distinct implementations of classes; how many tests have mocks)
+
+%RQ: is it the case that tests in package X are more likely to use real objects from X and mock objects from Y? Does it make sense to compute a notion of distance between X and Y? (e.g. you mock a database which is “far away” but not something close by)
+%how much dependence from main code and how much dependence from test case?
+
+%RQ: what is the lifetime of a mock object? does it survive across tests (in a field), or is it created just within a test? (compare to non-mocks)
+
+%RQ: What things are hard to mock?
+
+%https://blog.cleancoder.com/uncle-bob/2014/05/10/WhenToMock.html
 
 

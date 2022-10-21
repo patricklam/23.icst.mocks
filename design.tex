@@ -1,7 +1,4 @@
-Proper usage of mock objects and stubs/fakes has been debated among practitioners at length, and there is a division between so-called ``classical'' and ``mockist'' schools.
-%Additionally, there is some work on understanding the use of mock objects in the research literature, which we will discuss in Section~\ref{sec:related}. 
-In this work, we aim to understand mock usage in Java at a finer-grained level than in previous work. This additional granularity is required to form a data-driven opinion about how extant system designs support ``classical'' versus ``mockist'' views. We next provide some background information so that we can describe these views.
-
+We next provide some background information so that we can better describe ``classical'' and ``mockist'' views.
 Meszaros~\cite{meszaros2007xunit} (and, following him, Fowler~\cite{fowler07:_mocks_arent_stubs}) use the term ``test double'' for the concept of a collaborator object required during testing. When testing a given class \texttt{C}, a developer will need to somehow provide instances of \texttt{C}'s collaborators to exercise \texttt{C}'s functionality. 
 One of our key goals is to understand how free developers are to choose between different kinds of test doubles---notably, mocks and stubs/fakes. 
 
