@@ -1,4 +1,4 @@
-\label{sec:mocks}
+\label{sec:methodology}
 
 We have implemented a tool \textsc{MockDetector} to perform fine-grained analysis, detecting invocations of mock objects in Java bytecode. \textsc{MockDetector} has a declarative implementation built on top of Doop~\cite{bravenboer09:_stric_declar_specif_sophis_point_analy}, which is easy to extend. For instance, marking a field as mock-containing in Doop was quite easy (we added 3 rules).
 %We started this project with the usual imperative approach to implementing a static analysis---in our context, that meant using Soot. Then, when we wanted to experiment with adding more features to the analysis, we decided that this was a good opportunity to learn about Doop's declarative approach as well. We added new features to the Doop implementation and backported them to the Soot implementation. 
@@ -10,12 +10,13 @@ We have implemented a tool \textsc{MockDetector} to perform fine-grained analysi
 %\subsection{Declarative Doop Implementation}
 %\label{sec:dec-doop}
 %We next describe the declarative Doop-based technique that \textsc{MockDetector} uses. Both implementations 
-The main idea is propagate mockness from known mock sources, through the statements in the intermediate representation (IR), to potential mock invocation sites. Doop analyses specify propagation using Datalog rules. 
+As we saw in Section~\ref{sec:motivating-example}, the main idea is to propagate mockness from known mock sources, through the statements in the intermediate representation (IR), to potential mock invocation sites. Doop analyses specify propagation using Datalog rules. 
+%Adding (context-insensitive) interprocedural support to a Doop analysis is almost trivial: we only needed to add two rules.
+Our analysis is context-insensitive interprocedural.
+It also supports arrays, containers, and fields. Although declarative analyses are easier to define than their imperative counterparts, they are still subject to the feature interaction problem: for instance, they still must specifically handle the case where an array-typed field is assigned from a mock-containing array local.
 
 %We chose to implement a may-analysis rather than a must-analysis for two reasons: 1) we did not observe any cases where a value was assigned a mock on one branch and a real object on the other branch; 2) implementing a must-analysis would not help heuristics to find focal methods, as a must-analysis would rule out fewer mock invocations. 
 
-Adding (context-insensitive) interprocedural support to a Doop analysis is almost trivial: we only needed to add two rules.
-The analysis also supports arrays, containers, and fields. Although declarative analyses are easier to define than their imperative counterparts, they are still subject to the feature interaction problem: for instance, they still must specifically handle the case where an array-typed field is assigned from a mock-containing array local.
 
 % Mock Libraries discussed in Common Infrastructure section, perhaps refer to the paragraph in Common Infrastructure section?
 The implementation declares facts for 10 mock source methods manually gleaned from the mock libraries' documentation, as specified through method signatures (e.g. 
