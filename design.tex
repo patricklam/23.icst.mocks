@@ -25,6 +25,9 @@ One of the controversies associated with using test doubles is that they hardcod
 
 Our work aims, in part, to determine how easy it is to avoid test doubles. The implication, if it is often easy to avoid doubles, is that developers can freely choose either the ``classical'' view or the ``mockist'' view, and if they take the ``classical'' view, then they do not often have to write mocks. On the other hand, if it is often difficult to avoid test doubles, then the ``mockist'' view may be a more comfortable worldview, because the developer will have to write a lot of mocks regardless. Of course, a particular system's design may be more amenable to a particular view.
 
+\todo[inline]{hard to mock}
+
+
 \paragraph{Respecting boundaries} A secondary goal of our work is to determine mock objects' distance, in the following sense.
 The mockist point of view, as expressed
 in~\cite{freeman04:_mock_roles_objec}, is ``only mock types you own'' and ``only mock your immediate
@@ -35,6 +38,8 @@ workspace object. Mockists recommend using thin wrappers (stubs or fakes) for
 library objects. On the other hand, the classical view acknowledges that test doubles
 are necessary for collaborators like databases and email-sending-code, which definitely
 do not share ownership with the class being tested.
+
+\todo[inline]{Can give an example of distance here}
 
 %% also complicates the static analysis of test case source code. 
 %% Such static analyses can help IDEs provide better
