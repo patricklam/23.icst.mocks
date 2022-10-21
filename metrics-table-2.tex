@@ -1,27 +1,84 @@
 \begin{table}[]
-    \begin{tabular}{lllllllllllllll}
-        benchmark                            & tests & tests using mocks & total mocked types & interface (internal) & conc. class (internal) & abs. class (internal) & interface (external) & conc. class (external) & abs. class (external) & c1 & c2 & c3 & c4 & c5 \\
-        JakeWharton\_RxRelay                 & 64    & 13                & 2                  & 0                    & 0                      & 0                     & 1                    & 0                      & 1                     & 0  & 0  & 0  & 0  & 0  \\
-        braintree\_braintree\_java           &      & 9                 & 6                  & 1                    & 1                      & 3                     & 0                    & 0                      & 1                     & 0  & 0  & 0  & 0  & 0  \\
-        eirslett\_frontend-maven-plugin      & 30    & 2                 & 2                  & 0                    & 0                      & 0                     & 0                    & 0                      & 2                     & 0  & 0  & 0  & 0  & 0  \\
-        perwendel\_spark                     & 271   & 94                & 10                 & 2                    & 0                      & 4                     & 3                    & 0                      & 1                     & 0  & 4  & 2  & 0  & 0  \\
-        palatable\_lambda                    &      & 45                & 11                 & 1                    & 0                      & 7                     & 2                    & 0                      & 1                     & 0  & 1  & 7  & 0  & 0  \\
-        coobird\_thumbnailator               & 707   & 57                & 14                 & 5                    & 1                      & 2                     & 0                    & 4                      & 2                     & 0  & 0  & 2  & 0  & 2  \\
-        Azure\_azure-functions-java-worker   & 3     & 2                 & 3                  & 0                    & 0                      & 0                     & 0                    & 0                      & 3                     & 3  & 0  & 3  & 0  & 0  \\
-        tcurdt\_jdeb                         & 10    & 4                 & 2                  & 1                    & 0                      & 0                     & 0                    & 0                      & 1                     & 0  & 0  & 0  & 0  & 0  \\
-        apache\_maven-dependency-plugin      & 33    & 18                & 6                  & 0                    & 0                      & 0                     & 3                    & 0                      & 3                     & 0  & 3  & 1  & 0  & 1  \\
-        openshift\_openshift-restclient-java & 16    & 42                & 16                 & 16                   & 0                      & 0                     & 0                    & 0                      & 0                     & 0  & 12 & 0  & 0  & 0  \\
-        square\_javapoet                     &       & 4                 & 3                  & 0                    & 0                      & 0                     & 2                    & 0                      & 1                     & 0  & 2  & 0  & 0  & 0  \\
-        mojohaus\_exec-maven-plugin          & 19    & 1                 & 3                  & 0                    & 0                      & 0                     & 1                    & 0                      & 2                     & 0  & 1  & 0  & 0  & 1  \\
-        codehaus-plexus\_plexus-resources    & 3     & 2                 & 2                  & 0                    & 0                      & 0                     & 1                    & 0                      & 1                     & 0  & 1  & 0  & 0  & 0  \\
-        apache\_maven-assembly-plugin        &      & 100               & 18                 & 4                    & 0                      & 0                     & 11                   & 0                      & 3                     & 0  & 8  & 0  & 0  & 1  \\
-        DiUS\_java-faker                     & 524   & 503               & 7                  & 0                    & 0                      & 6                     & 0                    & 0                      & 1                     & 0  & 0  & 2  & 0  & 0  \\
-        ralfstx\_minimal-json                & 462   & 21                & 6                  & 0                    & 1                      & 2                     & 0                    & 2                      & 1                     & 0  & 0  & 3  & 0  & 0  \\
-        douglascrockford\_JSON-java          & 373   & 2                 & 3                  & 2                    & 0                      & 0                     & 0                    & 0                      & 1                     & 0  & 1  & 0  & 0  & 0  \\
-        timols\_java-gitlab-api              & 14    & 6                 & 2                  & 0                    & 0                      & 0                     & 0                    & 0                      & 2                     & 0  & 0  & 1  & 0  & 0  \\
-        lettuce-io\_lettuce-core             &     & 206               & 43                 & 1                    & 0                      & 0                     & 30                   & 3                      & 9                     & 0  & 14 & 3  & 1  & 1  \\
-        srikanth-lingala\_zip4j              & 325   & 37                & 11                 & 0                    & 0                      & 0                     & 7                    & 2                      & 2                     & 0  & 3  & 2  & 0  & 0  \\
-        mojohaus\_versions-maven-plugin      & 90    & 16                & 14                 & 0                    & 0                      & 0                     & 10                   & 1                      & 3                     & 0  & 8  & 1  & 0  & 1  \\
-        bennidi\_mbassador                   & 53    & 8                 & 3                  & 1                    & 0                      & 1                     & 0                    & 0                      & 1                     & 0  & 0  & 0  & 0  & 0
+    \begin{tabular}{lrr}
+        Benchmark                            & tests & tests using mocks \\
+        JakeWharton\_RxRelay                 & 64    & 13                \\
+        braintree\_braintree\_java           &       & 9                 \\
+        eirslett\_frontend-maven-plugin      & 30    & 2                 \\
+        perwendel\_spark                     & 271   & 94                \\
+        palatable\_lambda                    &       & 45                \\
+        coobird\_thumbnailator               & 707   & 57                \\
+        Azure\_azure-functions-java-worker   & 3     & 2                 \\
+        tcurdt\_jdeb                         & 10    & 4                 \\
+        apache\_maven-dependency-plugin      & 33    & 18                \\
+        openshift\_openshift-restclient-java & 16    & 42                \\
+        square\_javapoet                     &       & 4                 \\
+        mojohaus\_exec-maven-plugin          & 19    & 1                 \\
+        codehaus-plexus\_plexus-resources    & 3     & 2                 \\
+        apache\_maven-assembly-plugin        &       & 100               \\
+        DiUS\_java-faker                     & 524   & 503               \\
+        ralfstx\_minimal-json                & 462   & 21                \\
+        douglascrockford\_JSON-java          & 373   & 2                 \\
+        timols\_java-gitlab-api              & 14    & 6                 \\
+        lettuce-io\_lettuce-core             &       & 206               \\
+        srikanth-lingala\_zip4j              & 325   & 37                \\
+        mojohaus\_versions-maven-plugin      & 90    & 16                \\
+        bennidi\_mbassador                   & 53    & 8
+    \end{tabular}
+\end{table}
+
+\begin{table}[]
+    \begin{tabular}{lrrrr}
+        Benchmark                            & total mocked types & interface (int/ext) & abs. class (int/ext) & conc. class (int/ext) \\
+        JakeWharton\_RxRelay                 & 2                  & 0 / 1               & 0 / 1                & 0 / 0                 \\
+        braintree\_braintree\_java           & 6                  & 1 / 0               & 3 / 1                & 1 / 0                 \\
+        eirslett\_frontend-maven-plugin      & 2                  & 0 / 0               & 0 / 2                & 0 / 0                 \\
+        perwendel\_spark                     & 10                 & 2 / 3               & 4 / 1                & 0 / 0                 \\
+        palatable\_lambda                    & 11                 & 1 / 2               & 7 / 1                & 0 / 0                 \\
+        coobird\_thumbnailator               & 14                 & 5 / 0               & 2 / 2                & 1 / 4                 \\
+        Azure\_azure-functions-java-worker   & 3                  & 0 / 0               & 0 / 3                & 0 / 0                 \\
+        tcurdt\_jdeb                         & 2                  & 1 / 0               & 0 / 1                & 0 / 0                 \\
+        apache\_maven-dependency-plugin      & 6                  & 0 / 3               & 0 / 3                & 0 / 0                 \\
+        openshift\_openshift-restclient-java & 16                 & 16 / 0              & 0 / 0                & 0 / 0                 \\
+        square\_javapoet                     & 3                  & 0 / 2               & 0 / 1                & 0 / 0                 \\
+        mojohaus\_exec-maven-plugin          & 3                  & 0 / 1               & 0 / 2                & 0 / 0                 \\
+        codehaus-plexus\_plexus-resources    & 2                  & 0 / 1               & 0 / 1                & 0 / 0                 \\
+        apache\_maven-assembly-plugin        & 18                 & 4 / 11              & 0 / 3                & 0 / 0                 \\
+        DiUS\_java-faker                     & 7                  & 0 / 0               & 6 / 1                & 0 / 0                 \\
+        ralfstx\_minimal-json                & 6                  & 0 / 0               & 2 / 1                & 1 / 2                 \\
+        douglascrockford\_JSON-java          & 3                  & 2 / 0               & 0 / 1                & 0 / 0                 \\
+        timols\_java-gitlab-api              & 2                  & 0 / 0               & 0 / 2                & 0 / 0                 \\
+        lettuce-io\_lettuce-core             & 43                 & 1 / 30              & 0 / 9                & 0 / 3                 \\
+        srikanth-lingala\_zip4j              & 11                 & 0 / 7               & 0 / 2                & 0 / 2                 \\
+        mojohaus\_versions-maven-plugin      & 14                 & 0 / 10              & 0 / 3                & 0 / 1                 \\
+        bennidi\_mbassador                   & 3                  & 1 / 0               & 1 / 1                & 0 / 0
+    \end{tabular}
+\end{table}
+
+
+\begin{table}[]
+    \begin{tabular}{lrrrrr}
+        Benchmark                            & c1 & c2 & c3 & c4 & c5 \\
+        JakeWharton\_RxRelay                 & 0  & 0  & 0  & 0  & 0  \\
+        braintree\_braintree\_java           & 0  & 0  & 0  & 0  & 0  \\
+        eirslett\_frontend-maven-plugin      & 0  & 0  & 0  & 0  & 0  \\
+        perwendel\_spark                     & 0  & 4  & 2  & 0  & 0  \\
+        palatable\_lambda                    & 0  & 1  & 7  & 0  & 0  \\
+        coobird\_thumbnailator               & 0  & 0  & 2  & 0  & 2  \\
+        Azure\_azure-functions-java-worker   & 3  & 0  & 3  & 0  & 0  \\
+        tcurdt\_jdeb                         & 0  & 0  & 0  & 0  & 0  \\
+        apache\_maven-dependency-plugin      & 0  & 3  & 1  & 0  & 1  \\
+        openshift\_openshift-restclient-java & 0  & 12 & 0  & 0  & 0  \\
+        square\_javapoet                     & 0  & 2  & 0  & 0  & 0  \\
+        mojohaus\_exec-maven-plugin          & 0  & 1  & 0  & 0  & 1  \\
+        codehaus-plexus\_plexus-resources    & 0  & 1  & 0  & 0  & 0  \\
+        apache\_maven-assembly-plugin        & 0  & 8  & 0  & 0  & 1  \\
+        DiUS\_java-faker                     & 0  & 0  & 2  & 0  & 0  \\
+        ralfstx\_minimal-json                & 0  & 0  & 3  & 0  & 0  \\
+        douglascrockford\_JSON-java          & 0  & 1  & 0  & 0  & 0  \\
+        timols\_java-gitlab-api              & 0  & 0  & 1  & 0  & 0  \\
+        lettuce-io\_lettuce-core             & 0  & 14 & 3  & 1  & 1  \\
+        srikanth-lingala\_zip4j              & 0  & 3  & 2  & 0  & 0  \\
+        mojohaus\_versions-maven-plugin      & 0  & 8  & 1  & 0  & 1  \\
+        bennidi\_mbassador                   & 0  & 0  & 0  & 0  & 0
     \end{tabular}
 \end{table}
