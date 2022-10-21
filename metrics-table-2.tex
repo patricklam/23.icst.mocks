@@ -1,33 +1,4 @@
-% \begin{table}[]
-%     \begin{tabular}{lrr}
-%         Benchmark                   & tests & tests using mocks \\
-%         RxRelay                     & 64    & 13                \\
-%         braintree\_java             &       & 9                 \\
-%         frontend-maven-plugin       & 30    & 2                 \\
-%         spark                       & 271   & 94                \\
-%         lambda                      &       & 45                \\
-%         thumbnailator               & 707   & 57                \\
-%         azure-functions-java-worker & 3     & 2                 \\
-%         jdeb                        & 10    & 4                 \\
-%         maven-dependency-plugin     & 33    & 18                \\
-%         openshift-restclient-java   & 16    & 42                \\
-%         javapoet                    &       & 4                 \\
-%         exec-maven-plugin           & 19    & 1                 \\
-%         plexus-resources            & 3     & 2                 \\
-%         maven-assembly-plugin       &       & 100               \\
-%         java-faker                  & 524   & 503               \\
-%         minimal-json                & 462   & 21                \\
-%         JSON-java                   & 373   & 2                 \\
-%         java-gitlab-api             & 14    & 6                 \\
-%         lettuce-core                &       & 206               \\
-%         zip4j                       & 325   & 37                \\
-%         versions-maven-plugin       & 90    & 16                \\
-%         mbassador                   & 53    & 8
-%     \end{tabular}
-% \end{table}
-
 \begin{table*}[]
-    \newcolumntype{L}{>{\raggedright\arraybackslash}X}
     \begin{tabular*}{\linewidth}[t]{lrrrrrr}
         \multirow{2}{*}{Benchmark}                   & \multirow{2}{*}{\shortstack{\# of Mocked Types \\ (Total)}} & \multirow{2}{*}{\shortstack{\# of Interfaces \\ (Internal/External)}} & \multirow{2}{*}{\shortstack{\# of Abstract Classes \\ (Internal/External)}} & \multirow{2}{*}{\shortstack{\# of Concrete Classes \\ (Internal/External)}} & \multirow{2}{*}{\shortstack{\# of Tests \\ (Total)}} & \multirow{2}{*}{\shortstack{\# of Tests \\ (using Mocks)}} \\
         & & & & & & \\ \hline
@@ -57,30 +28,3 @@
 \end{table*}
 
 
-% \begin{table}[]
-%     \begin{tabular}{lrrrrrr}
-%         Benchmark                   & mocked types & c1 & c2 & c3 & c4 & c5 \\
-%         RxRelay                     & 2            & 0  & 0  & 0  & 0  & 0  \\
-%         braintree\_java             & 6            & 0  & 0  & 0  & 0  & 0  \\
-%         frontend-maven-plugin       & 2            & 0  & 0  & 0  & 0  & 0  \\
-%         spark                       & 10           & 0  & 4  & 2  & 0  & 0  \\
-%         lambda                      & 11           & 0  & 1  & 7  & 0  & 0  \\
-%         thumbnailator               & 14           & 0  & 0  & 2  & 0  & 2  \\
-%         azure-functions-java-worker & 3            & 3  & 0  & 3  & 0  & 0  \\
-%         jdeb                        & 2            & 0  & 0  & 0  & 0  & 0  \\
-%         maven-dependency-plugin     & 6            & 0  & 3  & 1  & 0  & 1  \\
-%         openshift-restclient-java   & 16           & 0  & 12 & 0  & 0  & 0  \\
-%         javapoet                    & 3            & 0  & 2  & 0  & 0  & 0  \\
-%         exec-maven-plugin           & 3            & 0  & 1  & 0  & 0  & 1  \\
-%         plexus-resources            & 2            & 0  & 1  & 0  & 0  & 0  \\
-%         maven-assembly-plugin       & 18           & 0  & 8  & 0  & 0  & 1  \\
-%         java-faker                  & 7            & 0  & 0  & 2  & 0  & 0  \\
-%         minimal-json                & 6            & 0  & 0  & 3  & 0  & 0  \\
-%         JSON-java                   & 3            & 0  & 1  & 0  & 0  & 0  \\
-%         java-gitlab-api             & 2            & 0  & 0  & 1  & 0  & 0  \\
-%         lettuce-core                & 43           & 0  & 14 & 3  & 1  & 1  \\
-%         zip4j                       & 11           & 0  & 3  & 2  & 0  & 0  \\
-%         versions-maven-plugin       & 14           & 0  & 8  & 1  & 0  & 1  \\
-%         mbassador                   & 3            & 0  & 0  & 0  & 0  & 0
-%     \end{tabular}
-% \end{table}
