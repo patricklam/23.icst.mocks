@@ -1,28 +1,25 @@
 \label{sec:mocks}
 
-\todo[inline]{Remove references to Soot, and add what we've added here}
-
-We implemented two complementary ways of statically computing mock information: 
-a declarative implementation (using Doop~\cite{bravenboer09:_stric_declar_specif_sophis_point_analy}), along with
-an imperative implementation of a dataflow analysis (using Soot~\cite{Vallee-Rai:1999:SJB:781995.782008}). While the core analysis implementations are similar, the Soot analysis is much easier for subsequent client analyses to build on. Because the Soot analysis is intraprocedural, it also runs much more quickly. On the other hand, it is easier to experiment with the Doop analysis. For instance, marking a field as mock-containing in Doop was quite easy (we added 3 rules), while the Soot version required us to write new code.
+We have implemented a tool \textsc{MockDetector} to perform fine-grained analysis, detecting invocations of mock objects in Java bytecode. \textsc{MockDetector} has a declarative implementation built on top of Doop~\cite{bravenboer09:_stric_declar_specif_sophis_point_analy}, which is easy to extend. For instance, marking a field as mock-containing in Doop was quite easy (we added 3 rules).
 %We started this project with the usual imperative approach to implementing a static analysis---in our context, that meant using Soot. Then, when we wanted to experiment with adding more features to the analysis, we decided that this was a good opportunity to learn about Doop's declarative approach as well. We added new features to the Doop implementation and backported them to the Soot implementation. 
 %Although the reason that two implementations exist is unimportant at this stage, the result is consequential:
-The existence of these two implementations is a rare opportunity to cross-check static analysis results. We thus carefully compared our results to make sure that they matched.
+%The existence of these two implementations is a rare opportunity to cross-check static analysis results. We thus carefully compared our results to make sure that they matched.
 %Since the focus of this paper is on mock analysis, we will not discuss specific implementation details in depth.
 %While the core analysis is similar, the different implementation technologies have different affordances. For instance, it is easier for the Doop version to mark a field as mock-containing (we added 3 rules) than for the Soot version to do so. We start by describing each implementation in turn, and conclude this section with the commonalities between the two implementations. Section~\ref{sec:evaluation} then presents the results obtained using each technology and compares them.
 
-\subsection{Declarative Doop Implementation}
-\label{sec:dec-doop}
-We next describe the declarative Doop-based technique that \textsc{MockDetector} uses. Both implementations propagate mockness from known mock sources, through the statements in the intermediate representation (IR), to potential mock invocation sites. Doop analyses specify propagation using Datalog rules. 
+%\subsection{Declarative Doop Implementation}
+%\label{sec:dec-doop}
+%We next describe the declarative Doop-based technique that \textsc{MockDetector} uses. Both implementations 
+The main idea is propagate mockness from known mock sources, through the statements in the intermediate representation (IR), to potential mock invocation sites. Doop analyses specify propagation using Datalog rules. 
 
 %We chose to implement a may-analysis rather than a must-analysis for two reasons: 1) we did not observe any cases where a value was assigned a mock on one branch and a real object on the other branch; 2) implementing a must-analysis would not help heuristics to find focal methods, as a must-analysis would rule out fewer mock invocations. 
 
 Adding (context-insensitive) interprocedural support to a Doop analysis is almost trivial: we only needed to add two rules.
-Both analyses support arrays, containers, and fields. Although declarative analyses are easier to define than their imperative counterparts, they are still subject to the feature interaction problem: for instance, they still must specifically handle the case where an array-typed field is assigned from a mock-containing array local.
+The analysis also supports arrays, containers, and fields. Although declarative analyses are easier to define than their imperative counterparts, they are still subject to the feature interaction problem: for instance, they still must specifically handle the case where an array-typed field is assigned from a mock-containing array local.
 
 % Mock Libraries discussed in Common Infrastructure section, perhaps refer to the paragraph in Common Infrastructure section?
-The implementation declares facts for 9 mock source methods manually gleaned from the mock libraries' documentation, as specified through method signatures (e.g. 
-\texttt{<org.mockito.\\Mockito: java.lang.Object mock(java.lang.Class)>}.)
+The implementation declares facts for 10 mock source methods manually gleaned from the mock libraries' documentation, as specified through method signatures (e.g. 
+\texttt{<org.mockito.Mockito: java.lang.Object mock(java.lang.Class)>}.)
 It then declares that a variable {\tt v} satisfies \verb+isMockVar(v)+ if it is assigned from the return value of a mock source, or otherwise traverses the program's interprocedural control-flow graph, through assignments, which may possibly flow through fields, collections, or arrays. Finally, an invocation site is a mock invocation if the receiver object {\tt v} satisfies \verb+isMockVar(v)+.
 
 \begin{lstlisting}[basicstyle=\ttfamily\small,numbers=none,label={lst:core},caption={Selected rules for Datalog mock analysis},
@@ -91,11 +88,12 @@ We treat collections analogously. However, while there is one API for arrays---b
 %Section~\ref{sec:methodology} will provide a more detailed definition of ``hard to stub''. We have identified a number of reasons that make a class or interface hard to stub. Some reasons are: would have to implement too many methods (even if the implementation is empty); has no accessible constructor; constructor has too many arguments; etc. Our goal is to assess how often mocks are used to provide implementations of classes or interfaces that are hard to stub. In other words, the use of a mock is indispensible for testing collaborators of these objects.
 
 \paragraph{JUnit and Driver Generation}
-JUnit tests are simply methods that developers write in test classes, appropriately annotated (in JUnit 3 by method name starting with ``test'', in 4+ by a \texttt{@Test} annotation). A JUnit test runner uses reflection to find tests. Out of the box, static analysis engines do not see tests as reachable code.
+Static analyses rely on having a set of program entry points. This is a bit tricky for JUnit tests.
+Such tests are simply methods that developers write in test classes, appropriately annotated (in JUnit 3 by method name starting with ``test'', in 4+ by a \texttt{@Test} annotation). A JUnit test runner uses reflection to find tests. Thus, out of the box, static analysis engines do not see tests as reachable code.
 
 % what about hierarchical drivers?
 
-Thus, to enable static analysis over a benchmark's test suite, our tool uses Soot to generate a driver class for each Java sub-package of the suite (e.g. \texttt{org.apache.ibatis.executor.statement}). In each of these sub-package driver classes, our tool creates a \textit{runall()} method, which invokes all methods within the sub-package that JUnit considers tests, as well as non-constructor test cases, all surrounded by calls to class-level init/setup and teardown methods. Concrete test methods are particularly easy to call from a driver, as they are specified to have no parameters and are not supposed to rely on any particular ordering. 
+To enable static analysis over a benchmark's test suite, our tool uses the Soot program analysis framework~\cite{Vallee-Rai:1999:SJB:781995.782008} to generate a driver class for each Java sub-package of the suite (e.g. \texttt{org.apache.ibatis.executor.statement}). In each of these sub-package driver classes, our tool creates a \textit{runall()} method, which invokes all methods within the sub-package that JUnit considers tests, as well as non-constructor test cases, all surrounded by calls to class-level init/setup and teardown methods. Concrete test methods are particularly easy to call from a driver, as they are specified to have no parameters and are not supposed to rely on any particular ordering. 
 Our tool then creates a RootDriver class at the root package level, which invokes the \textit{runall()} method in each sub-package driver class, along with the \texttt{@Test}/\texttt{@Before}/\texttt{@After} methods found in classes located at the root. The drivers that we generate also contain code to catch all checked exceptions declared to be thrown by the unit tests. Both our Soot and Doop implementations use the generated driver classes.
 
 All static frameworks must somehow approximate the set of entry points as appropriate for their targets. For instance, the Wala framework~\cite{wala19:_t} also creates synthetic entry points, but it does this to perform pointer analysis on a program's main code rather than to enumerate the program's test cases.
