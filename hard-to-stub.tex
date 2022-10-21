@@ -30,13 +30,41 @@ We next justify our choice of predicates. If any predicate evaluates to true on 
 classify $T$ as difficult to stub.
 
 \begin{itemize}
-\item $T$ is a final class: although final classes may be instantiable, we cannot add test behaviour to them
-\item $T$ is an interface and has more than 5 methods: for an interface, we need to implement all methods in the stub, and more than the arbitrarily-chosen threshold of 5 becomes unwieldy
-\item $T$ is a class but has no public constructor: such a class may be difficult to instantiate in a test context, e.g. from a different package
-\item $T$ is a class with final method \texttt{m()} which at least one test method invokes: again, we cannot add test behaviour to \texttt{m()} (note that such classes are also difficult to mock, though modern versions of Mockito with appropriate plugins can use Java reflection to do so)
-\item $T$ is a class with public constructors, but all constructors have more than 5 arguments: such classes are likely to be difficult to instantiate.
+\item (C1) $T$ is a final class: although final classes may be instantiable, we cannot add test behaviour to them
+\item (C2) $T$ is an interface and has more than 5 methods: for an interface, we need to implement all methods in the stub, and more than the arbitrarily-chosen threshold of 5 becomes unwieldy
+\item (C3) $T$ is a class but has no public constructor: such a class may be difficult to instantiate in a test context, e.g. from a different package
+\item (C4) $T$ is a class with final method \texttt{m()} which at least one test method invokes: again, we cannot add test behaviour to \texttt{m()} (note that such classes are also difficult to mock, though modern versions of Mockito with appropriate plugins can use Java reflection to do so)
+\item (C5) $T$ is a class with public constructors, but all constructors have more than 5 arguments: such classes are likely to be difficult to instantiate.
 \end{itemize}
 
+As an example, consider the test class \texttt{BootiqueUtilsTest} from our benchmarks. It contains a test \texttt{moduleProviderDependencies()}, with the following code:
+
+        \begin{lstlisting}[basicstyle=\ttfamily,
+        numbers=left,numbersep=0pt,basicstyle=\scriptsize\ttfamily,language = Java, framesep=4.5mm, framexleftmargin=1.0mm, captionpos=b, escapechar=|, morekeywords={@Test}]
+  BQModuleProvider testModuleProvider1 = mock(BQModuleProvider.class);
+  // ...
+  BQModuleMetadata.Builder builder1 = mock(BQModuleMetadata.Builder.class);
+  BQModuleMetadata metadata1 = mock(BQModuleMetadata.class);
+  when(builder1.build()).thenReturn(metadata1);
+  when(testModuleProvider1.moduleBuilder()).thenReturn(builder1);
+  // ...
+  Collection<BQModuleMetadata> bqModuleMetadata =
+      BootiqueUtils.moduleProviderDependencies(singletonList(testModuleProvider1));
+  // ...
+      \end{lstlisting}
+
+The excerpt here creates a mock \texttt{BQModuleMetadata} object and records some behaviours.
+Later on, focal method \texttt{moduleProviderDependencies} gets the mock \texttt{testModuleProvider1}
+object and calls some methods on it, eventually resulting in (not shown) calls to the
+\texttt{builder1} object. We investigated the use of the \texttt{BQModuleMetadata} object;
+one might think that under a classical view, it could be directly instantiated. It turns out that
+it is hard to directly create \texttt{BQModuleMetadata} objects; there is no public constructor (C3), and
+it has to be created by a \texttt{Builder} object, which also has no public constructor. 
+To get a \texttt{Builder} one needs a \texttt{BQModuleProvider},
+which is an interface. At that point one could create an anonymous class implementing a \texttt{BQModuleProvider}
+and then jump through all the hoops. Also, \texttt{BQModuleProvider} is not easy to implement, as it has more than 5 methods
+that would need to be implemented (C2). One can see that, under the classical view, and this system design, one would definitely
+mock the \texttt{BQModuleMetadata} object!
 
 %% (N = <int>, N_A = <int>, AC = Abstract Class, C = Class, I = Interface, DtS = Difficult to Stub, ctor = Constructor, *internal)
 %% For any type T, if one (or more) of the below conditions are satisfied, then we classify T as DtS:
