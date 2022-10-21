@@ -1,22 +1,42 @@
-RQ2 asks about, for the objects that are mocked, whether they would be easy to stub. 
-We define some predicates which approximate ``easy to stub'', and explain them in this stub.
+Beyond simply counting mocks, we are interested in finding out which
+uses of mock objects are indispensable.  We propose a heuristic that
+approximates the notion of indispensability. In Java, one can usually
+write a stub by implementing a class (often anonymous) extending or
+implementing the abstract type. Intuitively, we say that a mock is
+indispensable if it is difficult or impossible to write a stub for
+that type without modifying the type; for instance, the stubbed type might
+not be instantiable (e.g. it has no accessible parameters). We believe that
+the ``classic'' view would use mocks mostly for indispensable types, while
+the ``mockist'' view would use mocks for types whether they are indispensable or not.
+We also verify the admonition in the early mock papers about mocking only objects
+that are close to the object under test.
 
-%% One challenge for whole-program static analysis of any test-related code is that whole-program
-%% analyses tend to aggressively prune code that is never invoked. Tests are invoked via reflection
-%% by a test driver. Hence, to analyze tests, we ran a first analysis to create a static test driver.
+Admittedly, our heuristics are not perfect; some characteristics contributing
+to indispensability are difficult to compute automatically. The goal of our heuristics
+is simply to identify some features of classes that make them difficult to stub.
+There are classes which are difficult to stub for reasons that our heuristics don't capture.
+That is, we designed our heuristics to have false negatives---missing some indispensable
+classes---but few false positives. Any class that is identified as indispensable is,
+in our opinion, easier to mock than to stub.
 
-%\paragraph{Counting classes that are hard to stub}
+We built the indispensability analysis on top of \textsc{MockDetector}
+using facts computed by Doop
+(\texttt{Var-Type}, \texttt{ClassModifier}, \texttt{Method}, \texttt{Method-Modifier}, \texttt{Param-Annotation})
+and by \textsc{MockDetector} (\texttt{isMockVar}
+and \texttt{isMockInvocation}). This analysis identifies difficult-to-stub classes, and
+computes aggregate statistics for each benchmark.
 
-% We used Doop queries to count classes that fit our definition of being hard to stub. 
-We developed a data analysis codebase on top of a selection of Doop facts (\texttt{Var-Type}, \texttt{ClassModifier}, \texttt{Method}, \texttt{Method-Modifier}, \texttt{Param-Annotation}) and two of our mock analysis outputs (\texttt{isMockVar}, \texttt{isMockInvocation}). At its core, this codebase includes queries to filter out types that fit our definition of being hard to stub, in addition to the queries for computing aggregate statistics for each benchmark.
+We next justify our choice of predicates. If any predicate evaluates to true on a type $T$ which is mocked, we 
+classify $T$ as difficult to stub.
 
-We explain why we think these predicates express facets of being difficult to stub.
+\begin{itemize}
+\item $T$ is a final class: although final classes may be instantiable, we cannot add test behaviour to them
+\item $T$ is an interface and has more than 5 methods: for an interface, we need to implement all methods in the stub, and more than the arbitrarily-chosen threshold of 5 becomes unwieldy
+\item $T$ is a class but has no public constructor: such a class may be difficult to instantiate in a test context, e.g. from a different package
+\item $T$ is a class with final method \texttt{m()} which at least one test method invokes: again, we cannot add test behaviour to \texttt{m()}
+\item $T$ is a class with public constructors, but all constructors have more than 5 arguments: such classes are likely to be difficult to instantiate.
+\end{itemize}
 
-
-
-%% When is it difficult not to use mocks?
-
-%% [Question: Difficult to Stub =? Difficult not to Mock]
 
 %% (N = <int>, N_A = <int>, AC = Abstract Class, C = Class, I = Interface, DtS = Difficult to Stub, ctor = Constructor, *internal)
 %% For any type T, if one (or more) of the below conditions are satisfied, then we classify T as DtS:
